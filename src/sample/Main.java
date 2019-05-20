@@ -21,7 +21,7 @@ public class Main extends Application {
     private static final int PAGE_WIDTH = 479;
     private static final int PAGE_HEIGHT = 673;
 
-    public static Location detailsPageLocation;
+    public static Location detailsPageLocation = Location.fromName("Cambridge,UK");
 
 
     public static void navigateToDetails(Location location) throws IOException {
