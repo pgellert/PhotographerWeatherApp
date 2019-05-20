@@ -13,6 +13,7 @@ public class scAPI {
 
     /*
         Returns a SunPosition class for current time at given location
+        use .azimuth and .attitude to get the
      */
     public static SunPosition getSunPositionNow(Location location) {
         double lat = Double.parseDouble(location.coordinate.latitude);
@@ -66,7 +67,7 @@ public class scAPI {
 
     /*
         Returns a List of SunTimes for next week at given lat/long position
-        deprecated - use ForecastInformationWeek for sunrise/set times instead
+        to get sunrise/sunset time use getRise and getSet
      */
     public static List<SunTimes> getSunTimesWeek(double lat, double lon) {
         SunTimes.Parameters timesWeekBuilder = SunTimes.compute();

@@ -148,14 +148,14 @@ public class OWM {
 
     public static void main(String[] args) {
         //How to get CurrentWeather object
-        CurrentWeather currentWeather = OWM.getCurrentWeather(new Location("Berlin"));
+        CurrentWeather currentWeather = OWM.getCurrentWeather( Location.fromName("Berlin"));
 
         //How to get specific forecast datapoint (ie Thursday 1pm) from ForecastInformationWeek object
-        DailyForecast dailyForecast = OWM.getWeekForecast(new Location("Paris")).forecasts.get(0);
+        DailyForecast dailyForecast = OWM.getWeekForecast( Location.fromName("Paris")).forecasts.get(0);
         //0 can be changed to 0-4
 
         //How to get specific forecast datapoint (ie today/tomorrow 9am) from ForecastInformationDay object
-        HourlyForecast hourlyForecast = OWM.getDayForecast(new Location("Liverpool")).forecasts.get(0);
+        HourlyForecast hourlyForecast = OWM.getDayForecast(Location.fromName("Liverpool")).forecasts.get(0);
         //0 can be changed from 0-7 ?? i think
 
         //What data can we get from currentweather/day/hour forecast?
