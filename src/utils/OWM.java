@@ -179,6 +179,6 @@ public class OWM {
         System.out.println(currentWeather.systemParameters.sunrise);//sunrise, similarly:
         //systemParameters.sunset
         //systemParameters.country
-        System.out.println(QueryParser.getIcon(hourlyForecast.weather.get(0).icon)); //Date of forecast and time
+        //System.out.println(QueryParser.getIcon(hourlyForecast.weather.get(0).icon)); //Date of forecast and time
     }
 }
