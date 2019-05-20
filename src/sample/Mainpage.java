@@ -83,6 +83,8 @@ public class Mainpage implements Initializable {
 
         boolean isFirst = true;
         // Populate list
+
+        // TODO: remove comment from this
         /*
         for (Location location : UpdateAllLocations.getUwa().getLocations()) {
             System.out.println(location);
