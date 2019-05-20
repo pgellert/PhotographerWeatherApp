@@ -170,15 +170,15 @@ public class OWM {
         System.out.println(currentWeather.weather.get(0).description); //general desc of weather - use for main icon
         System.out.println(currentWeather.wind.speed); //wind speed (similarly "direction")
         System.out.println(currentWeather.mainParameters.temperature); //temperature, similarly:
-                                        //mainParameters.minTemperature
-                                        //mainParameters.maxTemperature
-                                        //mainParameters.pressure
-                                        //mainParameters.seaLevelPressure
-                                        //mainParameters.groundLevelPressure
-                                        //mainParameters.humidity
+        //mainParameters.minTemperature
+        //mainParameters.maxTemperature
+        //mainParameters.pressure
+        //mainParameters.seaLevelPressure
+        //mainParameters.groundLevelPressure
+        //mainParameters.humidity
         System.out.println(currentWeather.systemParameters.sunrise);//sunrise, similarly:
-                                        //systemParameters.sunset
-                                        //systemParameters.country
+        //systemParameters.sunset
+        //systemParameters.country
         System.out.println(hourlyForecast.calculationDate); //Date of forecast and time
 
     }
