@@ -20,9 +20,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.*;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -284,26 +283,48 @@ public class DetailsController extends TimerTask{
     public void initialize(){
         btnHourly.setSelected(true);
         System.out.println(btnHourly.isSelected());
+
+        Date date = new Date();   // given date
+        Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
+        calendar.setTime(date);   // assigns calendar to given date
+        int currentHour = calendar.get(Calendar.HOUR_OF_DAY); // gets hour in 24h format
+
+        time1.setText("" + currentHour+":00");
+        time2.setText("" + (currentHour + 3) +":00");
+        time3.setText("" + (currentHour + 6)+":00");
+        time4.setText("" + (currentHour + 9)+":00");
+        time5.setText("" + (currentHour + 12)+":00");
+        time6.setText("" + (currentHour + 15)+":00");
+        time7.setText("" + (currentHour + 18)+":00");
+        time8.setText("" + (currentHour + 21)+":00");
+
+
+
+
+
         cw = OWM.getCurrentWeather(new Location(getCity()+","+getCountry()));
         locate.setText(getCity() + ", " + getCountry() );
+
+        //sets up temperature estimates
         List<HourlyForecast> list = OWM.getDayForecast(new Location(getCity()+","+getCountry())).forecasts;
         double bd = Conversions.toCelsius(list.get(0).mainParameters.temperature);
-        temp1.setText(String.format("%.2f", bd) + "°");
+        temp1.setText(String.format("%.1f", bd) + "°");
         double bd2 = Conversions.toCelsius(list.get(1).mainParameters.temperature);
-        temp2.setText(String.format("%.2f", bd2) + "°");
+        temp2.setText(String.format("%.1f", bd2) + "°");
         double bd3 = Conversions.toCelsius(list.get(2).mainParameters.temperature);
-        temp3.setText(String.format("%.2f", bd3) + "°");
+        temp3.setText(String.format("%.1f", bd3) + "°");
         double bd4 = Conversions.toCelsius(list.get(3).mainParameters.temperature);
-        temp4.setText(String.format("%.2f", bd4) + "°");
+        temp4.setText(String.format("%.1f", bd4) + "°");
         double bd5 = Conversions.toCelsius(list.get(4).mainParameters.temperature);
-        temp5.setText(String.format("%.2f", bd5) + "°");
+        temp5.setText(String.format("%.1f", bd5) + "°");
         double bd6 = Conversions.toCelsius(list.get(5).mainParameters.temperature);
-        temp6.setText(String.format("%.2f", bd6) + "°");
+        temp6.setText(String.format("%.1f", bd6) + "°");
         double bd7 = Conversions.toCelsius(list.get(6).mainParameters.temperature);
-        temp7.setText(String.format("%.2f", bd7) + "°");
+        temp7.setText(String.format("%.1f", bd7) + "°");
         double bd8 = Conversions.toCelsius(list.get(7).mainParameters.temperature);
-        temp8.setText(String.format("%.2f", bd8) + "°");
+        temp8.setText(String.format("%.1f", bd8) + "°");
 
+        //cloudiness
         cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
         cld2.setText(String.valueOf(list.get(1).clouds.cloudiness));
         cld3.setText(String.valueOf(list.get(2).clouds.cloudiness));
@@ -313,6 +334,7 @@ public class DetailsController extends TimerTask{
         cld7.setText(String.valueOf(list.get(6).clouds.cloudiness));
         cld8.setText(String.valueOf(list.get(7).clouds.cloudiness));
 
+        //rainamt
         String rainOutput = list.get(0).rain != null ? (list.get(0).rain.rainAmt + "%") : "N/A";
         rain1.setText(rainOutput);
         rainOutput = list.get(1).rain != null ? (list.get(1).rain.rainAmt + "%") : "N/A";
