@@ -18,12 +18,7 @@ public class scAPI {
     public static SunPosition getSunPositionNow(Location location) {
         double lat = Double.parseDouble(location.coordinate.latitude);
         double lon = Double.parseDouble(location.coordinate.longitude);
-        SunPosition.Parameters positionBuilder = SunPosition.compute();
-        positionBuilder.localTime();
-        positionBuilder = positionBuilder.now();
-        positionBuilder = positionBuilder.latitude(lat).longitude(lon);
-
-        return positionBuilder.execute();
+        return getSunPositionNow(lat, lon);
     }
 
     /*
@@ -35,6 +30,28 @@ public class scAPI {
         positionBuilder = positionBuilder.now();
         positionBuilder = positionBuilder.latitude(lat).longitude(lon);
         return positionBuilder.execute();
+    }
+
+    public static List<SunPosition> getSunPositionsDay(Location location) {
+        double lat = Double.parseDouble(location.coordinate.latitude);
+        double lon = Double.parseDouble(location.coordinate.longitude);
+        return getSunPositionsDay(lat, lon);
+    }
+
+    /*
+    Returns a list of 24 SunPositions for the current day at 0:00, 1:00, etc. up to 23:00
+     */
+
+    public static List<SunPosition> getSunPositionsDay(double lat, double lon) {
+        SunPosition.Parameters positionBuilder = SunPosition.compute();
+        positionBuilder = positionBuilder.latitude(lat).longitude(lon);
+        List<SunPosition> sunPositionsDay = new ArrayList<>();
+        for(int i =0; i < 24; i++) {
+            LocalDate dateToday =LocalDate.now();
+            positionBuilder.on(dateToday.getYear(), dateToday.getMonthValue(), dateToday.getDayOfMonth(), i, 0, 0 );
+            sunPositionsDay.add(positionBuilder.execute());
+        }
+        return sunPositionsDay;
     }
 
     /*
@@ -58,11 +75,7 @@ public class scAPI {
     public static SunTimes getSunTimesToday(Location location) {
         double lat = Double.parseDouble(location.coordinate.latitude);
         double lon = Double.parseDouble(location.coordinate.longitude);
-        SunTimes.Parameters timesBuilder = SunTimes.compute();
-        timesBuilder.localTime();
-        timesBuilder = timesBuilder.today();
-        timesBuilder = timesBuilder.latitude(lat).longitude(lon);
-        return timesBuilder.execute();
+        return getSunTimesToday(lat, lon);
     }
 
     /*
@@ -93,5 +106,9 @@ public class scAPI {
 
     public static void main(String[] args) {
         System.out.println(getSunPositionNow(Location.fromName("Moscow")).getAltitude());
+        List<SunPosition> sunPositions = getSunPositionsDay(Location.fromName("Moscow"));
+        for(SunPosition sunPosition : sunPositions) {
+            System.out.println(sunPosition.getAltitude());
+        }
     }
 }
