@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import utils.Search;
 
 import java.io.IOException;
 
@@ -28,7 +29,7 @@ public class Main extends Application {
     public static void navigateToDetails(Location location) throws IOException {
         System.out.println("goto details page");
 
-        detailsPageLocation = location;
+        detailsPageLocation = Search.getCompletedLocation(location);
         stage.setScene(new Scene(detailsPage, PAGE_WIDTH, PAGE_HEIGHT));
         stage.show();
     }
@@ -40,7 +41,7 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void navigateToSettings() throws IOException {
+    public static void navigateBackToSettings() throws IOException {
         System.out.println("goto settings page");
 
         stage.setScene(new Scene(settingPage, PAGE_WIDTH, PAGE_HEIGHT));
