@@ -5,8 +5,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import utils.Search;
 
@@ -41,7 +39,7 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void navigateBackToSettings() throws IOException {
+    public static void navigateToSettings() throws IOException {
         System.out.println("goto settings page");
 
         stage.setScene(new Scene(settingPage, PAGE_WIDTH, PAGE_HEIGHT));
