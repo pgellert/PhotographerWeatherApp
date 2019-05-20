@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import org.shredzone.commons.suncalc.SunTimes;
 import utils.Conversions;
 import utils.OWM;
 import utils.scAPI;
@@ -412,6 +413,21 @@ public class DetailsWeeklyController extends TimerTask{
         rain8.setText(rainOutput);
 
 
+        SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("HH:mm");
+        List<SunTimes> sunTimes = scAPI.getSunTimesWeek(detailsPageLocation);
+        sunup1.setText(simpleDateFormat1.format(sunTimes.get(0).getSet()));
+        sunup2.setText(simpleDateFormat1.format(sunTimes.get(1).getSet()));
+        sunup3.setText(simpleDateFormat1.format(sunTimes.get(2).getSet()));
+        sunup4.setText(simpleDateFormat1.format(sunTimes.get(3).getSet()));
+        sunup5.setText(simpleDateFormat1.format(sunTimes.get(4).getSet()));
+        sunup6.setText(simpleDateFormat1.format(sunTimes.get(5).getSet()));
+        sunup7.setText(simpleDateFormat1.format(sunTimes.get(6).getSet()));
+        sunup7.setText(simpleDateFormat1.format(sunTimes.get(6).getSet()));
+
+
+
+
+
 //        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
 //        bd = bd.round(new MathContext(3));
 //        temperature.setText(String.valueOf(bd) + "°");
@@ -439,7 +455,7 @@ public class DetailsWeeklyController extends TimerTask{
         sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
         sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
         cloudCover.setText(new Double(cw.clouds.cloudiness).intValue() +"%");
-        //sunPosition.setText(scAPI.getSunPositionNow(new Location(getCity()+","+getCountry())).getAzimuth() +  "°");
+        sunPosition.setText(scAPI.getSunPositionNow(detailsPageLocation).getAzimuth() +  "°");
         String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
         chanceOfRain.setText(rainOutput);
         java.awt.Image icon = cw.getIcon();

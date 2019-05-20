@@ -1,5 +1,6 @@
 package sample;
 
+import classes.Location;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,51 +8,68 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import utils.Search;
 
 import java.io.IOException;
 
 public class Main extends Application {
-    public TextField txtCity;
-    public TextField txtCountry;
-    public Button btnSearch;
     public static Stage stage;
-    private Parent root;
-    private static String city;
-    private static String country;
+
+    private static Parent mainPage;
+    private static Parent mainTesterPage;
+    private static Parent detailsPage;
+    private static Parent settingPage;
+
+    private static final int PAGE_WIDTH = 479;
+    private static final int PAGE_HEIGHT = 673;
+
+    public static Location detailsPageLocation;
 
 
-    public void switchToDetails() throws IOException {
+    public static void navigateToDetails(Location location) throws IOException {
         System.out.println("goto details page");
-        city = txtCity.getText();
-        country = txtCountry.getText();
-        root = FXMLLoader.load(getClass().getResource("detailpage.fxml"));
-        stage.setScene(new Scene(root, 479, 673));
+
+        detailsPageLocation = Search.getCompletedLocation(location);
+        stage.setScene(new Scene(detailsPage, PAGE_WIDTH, PAGE_HEIGHT));
+        stage.show();
+    }
+
+    public static void navigateBackToMainPage() throws IOException {
+        System.out.println("goto main page");
+
+        stage.setScene(new Scene(mainPage, PAGE_WIDTH, PAGE_HEIGHT));
+        stage.show();
+    }
+
+    public static void navigateBackToSettings() throws IOException {
+        System.out.println("goto settings page");
+
+        stage.setScene(new Scene(settingPage, PAGE_WIDTH, PAGE_HEIGHT));
         stage.show();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        stage = primaryStage;
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        stage.setTitle("Hello World");
-        stage.setScene(new Scene(root, 479, 673));
+        mainPage = FXMLLoader.load(getClass().getResource("mainpage.fxml"));
+        mainTesterPage = FXMLLoader.load(getClass().getResource("main.fxml"));
+        detailsPage = FXMLLoader.load(getClass().getResource("detailpage.fxml"));
+        settingPage = FXMLLoader.load(getClass().getResource("settingspage.fxml"));
+
+        this.stage = primaryStage;
+        stage.setTitle("Weather App for Photographers");
+        //loadMain();
+        loadMainTester(); //this is for the details page ui designers
+    }
+
+    private void loadMainTester(){
+        // TODO: should be removed at the end
+        stage.setScene(new Scene(mainTesterPage, PAGE_WIDTH, PAGE_HEIGHT));
         stage.show();
     }
 
-    public static String getCity(){
-        return city;
-    }
-
-    public static void setCity(String city){
-        Main.city = city;
-    }
-
-    public static String getCountry() {
-        return country;
-    }
-
-    public static void setCountry(String country){
-        Main.country = country;
+    private void loadMain(){
+        stage.setScene(new Scene(mainPage, PAGE_WIDTH, PAGE_HEIGHT));
+        stage.show();
     }
 
     public static void main(String[] args) {
