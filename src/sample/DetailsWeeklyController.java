@@ -288,10 +288,7 @@ public class DetailsWeeklyController extends TimerTask{
     public void back() throws IOException {
         //t2.cancel();
         //t2.purge();
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        Main.stage.setTitle("Back from Weekly");
-        Main.stage.setScene(new Scene(root, 479, 673));
-        stage.show();
+        Main.navigateBackToMainPage();
     }
 
     //When the button is toggled we switch to weekly
@@ -328,6 +325,9 @@ public class DetailsWeeklyController extends TimerTask{
     //Mihnea's method which initializes all fields in the top part of the screen
     public void initialize(){
         btnWeekly.setSelected(true);
+        CurrentWeather cw = OWM.getCurrentWeather(detailsPageLocation);
+        locate.setText(Main.detailsPageLocation.name);
+        List<DailyForecast> list = OWM.getWeekForecast(Main.detailsPageLocation).forecasts;
         //set up time fields
         Date date = new Date();   // given date
         Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
@@ -350,10 +350,6 @@ public class DetailsWeeklyController extends TimerTask{
         time7.setText(simpleDateFormat.format(calendar.getTime()));
         calendar.add(Calendar.DAY_OF_MONTH,3);
         time8.setText(simpleDateFormat.format(calendar.getTime()));
-
-        CurrentWeather cw = OWM.getCurrentWeather(new Location(getCity()+","+getCountry()));
-        locate.setText(getCity() + ", " + getCountry() );
-        List<DailyForecast> list = OWM.getWeekForecast(new Location(getCity()+","+getCountry())).forecasts;
 
         //sets up temps
         double bd = Conversions.toCelsius(list.get(0).mainParameters.temperature);
@@ -414,11 +410,6 @@ public class DetailsWeeklyController extends TimerTask{
         rain7.setText(rainOutput);
         rainOutput = list.get(7).rain != null ? (list.get(7).rain.rainAmt + "%") : "N/A";
         rain8.setText(rainOutput);
-
-
-
-
-
 
 
 //        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
