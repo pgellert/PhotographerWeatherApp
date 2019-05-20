@@ -57,7 +57,7 @@ public class OWM {
         if (location.owmId != null){
             query = "http://api.openweathermap.org/data/2.5/forecast?id=" + location.owmId+ "&APPID=" + api_id_owm;
         } else if (location.name != null){
-            query = "http://api.openweathermap.org/data/2.5/forecast?q=" + location.name + "&APPID=" + api_id_owm;
+            query = "http://api.openweathermap.org/data/2.5/forecast?q=" + location.name.replace(" ", "%20") + "&APPID=" + api_id_owm;
         } else {
             System.out.println("Invalid location");
             return null;
@@ -97,7 +97,7 @@ public class OWM {
         if (location.owmId != null){
             query = "http://api.openweathermap.org/data/2.5/forecast?id=" + location.owmId+ "&APPID=" + api_id_owm;
         } else if (location.name != null){
-            query = "http://api.openweathermap.org/data/2.5/forecast?q=" + location.name + "&APPID=" + api_id_owm;
+            query = "http://api.openweathermap.org/data/2.5/forecast?q=" + location.name.replace(" ", "%20") + "&APPID=" + api_id_owm;
         } else {
             System.out.println("Invalid location");
             return null;
@@ -133,7 +133,7 @@ public class OWM {
         if (location.owmId != null){
             query = "http://api.openweathermap.org/data/2.5/weather?id=" + location.owmId+ "&APPID=" + api_id_owm;
         } else if (location.name != null){
-            query = "http://api.openweathermap.org/data/2.5/weather?q=" + location.name + "&APPID=" + api_id_owm;
+            query = "http://api.openweathermap.org/data/2.5/weather?q=" + location.name.replace(" ", "%20") + "&APPID=" + api_id_owm;
         } else {
             System.out.println("Invalid location");
             return null;
