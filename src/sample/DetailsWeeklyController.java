@@ -338,19 +338,19 @@ public class DetailsWeeklyController extends TimerTask{
         int currentMonth = calendar.get(Calendar.MONTH); // gets hour in 24h format
         int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
         time1.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
+        calendar.add(Calendar.DAY_OF_MONTH,1);
         time2.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
+        calendar.add(Calendar.DAY_OF_MONTH,1);
         time3.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
+        calendar.add(Calendar.DAY_OF_MONTH,1);
         time4.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
+        calendar.add(Calendar.DAY_OF_MONTH,1);
         time5.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
+        calendar.add(Calendar.DAY_OF_MONTH,1);
         time6.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
+        calendar.add(Calendar.DAY_OF_MONTH,1);
         time7.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
+        calendar.add(Calendar.DAY_OF_MONTH,1);
         time8.setText(simpleDateFormat.format(calendar.getTime()));
 
         //sets up temps
