@@ -354,7 +354,7 @@ public class DetailsController extends TimerTask{
         sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
         sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
         cloudCover.setText(new Double(cw.clouds.cloudiness).intValue() +"%");
-        sunPosition.setText(scAPI.getSunPositionNow(detailsPageLocation).getAzimuth() +  "°");
+        sunPosition.setText(scAPI.getSunPositionNow(detailsPageLocation).getAltitude() +  "°");
         String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
         chanceOfRain.setText(rainOutput);
         java.awt.Image icon = cw.getIcon();
