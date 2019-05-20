@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import org.apache.commons.lang3.Conversion;
 import org.shredzone.commons.suncalc.SunTimes;
 import utils.Conversions;
 import utils.OWM;
@@ -370,21 +371,21 @@ public class DetailsWeeklyController extends TimerTask{
 
         String bd8 = Conversions.convertToPreferredTemperature(list.get(7).mainParameters.temperature);
 
-        temp1.setText(bd+ "°");
+        temp1.setText(bd);
 
-        temp2.setText(bd2 + "°");
+        temp2.setText(bd2);
 
-        temp3.setText(bd3 + "°");
+        temp3.setText(bd3);
 
-        temp4.setText(bd4 + "°");
+        temp4.setText(bd4);
 
-        temp5.setText(bd5 + "°");
+        temp5.setText(bd5);
 
-        temp6.setText(bd6 + "°");
+        temp6.setText(bd6);
 
-        temp7.setText(bd7 + "°");
+        temp7.setText(bd7);
 
-        temp8.setText(bd8 + "°");
+        temp8.setText(bd8);
 
 
         cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
@@ -455,14 +456,13 @@ public class DetailsWeeklyController extends TimerTask{
         System.out.println("refresh current weather");
         System.out.println(cw.mainParameters.temperature);
         System.out.println("once");
-        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
-        bd = bd.round(new MathContext(3));
-        temperature.setText(bd + "°");
-        visibility.setText(cw.visibility);
+        String bd = Conversions.convertToPreferredTemperature(cw.mainParameters.temperature);
+        temperature.setText(bd);
+        visibility.setText(Conversions.convertToPreferredDistance(Double.parseDouble(cw.visibility)));
         sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
         sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
         cloudCover.setText(new Double(cw.clouds.cloudiness).intValue() +"%");
-        sunPosition.setText(scAPI.getSunPositionNow(detailsPageLocation).getAltitude() +  "°");
+        sunPosition.setText(Conversions.roundDouble(scAPI.getSunPositionNow(detailsPageLocation).getAltitude()) +  "°");
         String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
         chanceOfRain.setText(rainOutput);
         sunType.setImage(cw.getIcon());

@@ -2,6 +2,10 @@ package utils;
 
 public class Conversions {
 
+    public static double roundDouble(double toRound) {
+        return Math.round(toRound*10d)/10d;
+    }
+
     public static String convertToPreferredTemperature(double temperatureInKelvin){
         if(Settings.getTemperatureUnitPreference() == Settings.TemperatureUnit.Celsius){
             return toCelsius(temperatureInKelvin) + "°C";
@@ -19,18 +23,18 @@ public class Conversions {
     }
 
     private static double toKilometres(double metres){
-        return metres / 1000;
+        return roundDouble(metres / 1000);
     }
 
     private static double toMiles(double metres){
-        return metres / 1000 * 0.621371;
+        return roundDouble(metres / 1000 * 0.621371);
     }
 
     private static double toCelsius(double kelvin){
-        return kelvin -273.15;
+        return roundDouble(kelvin -273.15);
     }
 
     private static double toFahrenheit(double kelvin){
-        return (kelvin * 1.8) - 459.67;
+        return roundDouble((kelvin * 1.8) - 459.67);
     }
 }

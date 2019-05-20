@@ -305,21 +305,21 @@ public class DetailsController{
 
         List<HourlyForecast> list = OWM.getDayForecast(Main.detailsPageLocation).forecasts;
         String bd = Conversions.convertToPreferredTemperature(list.get(0).mainParameters.temperature);
-        temp1.setText(bd + "°");
+        temp1.setText(bd);
         String bd2 = Conversions.convertToPreferredTemperature(list.get(1).mainParameters.temperature);
-        temp2.setText(bd2 + "°");
+        temp2.setText(bd2);
         String bd3 = Conversions.convertToPreferredTemperature(list.get(2).mainParameters.temperature);
-        temp3.setText(bd3 + "°");
+        temp3.setText(bd3);
         String bd4 = Conversions.convertToPreferredTemperature(list.get(3).mainParameters.temperature);
-        temp4.setText(bd4 + "°");
+        temp4.setText(bd4);
         String bd5 = Conversions.convertToPreferredTemperature(list.get(4).mainParameters.temperature);
-        temp5.setText(bd5 + "°");
+        temp5.setText(bd5);
         String bd6 = Conversions.convertToPreferredTemperature(list.get(5).mainParameters.temperature);
-        temp6.setText(bd6 + "°");
+        temp6.setText(bd6);
         String bd7 = Conversions.convertToPreferredTemperature(list.get(6).mainParameters.temperature);
-        temp7.setText(bd7 + "°");
+        temp7.setText(bd7);
         String bd8 = Conversions.convertToPreferredTemperature(list.get(7).mainParameters.temperature);
-        temp8.setText(bd8 + "°");
+        temp8.setText(bd8);
 
         cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
         cld2.setText(String.valueOf(list.get(1).clouds.cloudiness));
@@ -366,14 +366,13 @@ public class DetailsController{
 
     private void updateCurentWeather(CurrentWeather cw){
         System.out.println("refresh current weather");
-        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
-        bd = bd.round(new MathContext(3));
-        temperature.setText(bd + "°");
-        visibility.setText(cw.visibility);
+        String bd = Conversions.convertToPreferredTemperature(cw.mainParameters.temperature);
+        temperature.setText(bd);
+        visibility.setText(Conversions.convertToPreferredDistance(Double.parseDouble(cw.visibility)));
         sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
         sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
         cloudCover.setText(new Double(cw.clouds.cloudiness).intValue() +"%");
-        sunPosition.setText(String.valueOf(scAPI.getSunPositionNow(detailsPageLocation).getAltitude()) +  "°");
+        sunPosition.setText(Conversions.roundDouble(scAPI.getSunPositionNow(detailsPageLocation).getAltitude()) +  "°");
         String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
         chanceOfRain.setText(rainOutput);
         sunType.setImage(cw.getIcon());

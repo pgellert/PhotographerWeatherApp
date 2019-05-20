@@ -87,7 +87,7 @@ public class ListItem {
         } else{
             chanceOfRainValue.setText(weather.rain.rainAmt + "%");
         }
-        sunPositionValue.setText(Math.round(sunPosition.getAltitude()) + "°");
+        sunPositionValue.setText(Conversions.roundDouble(sunPosition.getAltitude()) + "°");
         cloudCoverValue.setText(Math.round(weather.clouds.cloudiness) + "%");
         currentLocationIcon.setVisible(isCurrentLocation);
     }
