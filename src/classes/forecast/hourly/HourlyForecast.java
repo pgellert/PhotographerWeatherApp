@@ -4,6 +4,7 @@ import classes.Weather;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import javafx.scene.image.Image;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import classes.gson.ISOStringDateTypeAdapter;
@@ -12,7 +13,6 @@ import classes.forecast.Forecast;
 import classes.forecast.ForecastInformation;
 import utils.QueryParser;
 
-import java.awt.*;
 import java.lang.reflect.Type;
 import java.util.Date;
 import java.util.List;

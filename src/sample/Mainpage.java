@@ -75,20 +75,19 @@ public class Mainpage implements Initializable {
 
         UpdateAllLocations.getUwa().addLocation(Location.fromName("Cambridge, UK"));
         UpdateAllLocations.getUwa().addLocation(Location.fromName("Bristol, UK"));
-        UpdateAllLocations.getUwa().addLocation(Location.fromName("Budapest"));
 
 
         boolean isFirst = true;
         // Populate list
 
         // TODO: remove comment from this
-        /*
+
         for (Location location : UpdateAllLocations.getUwa().getLocations()) {
             System.out.println(location);
             observableList.add(new WeatherTileData(location, isFirst));
             isFirst = false;
         }
-        */
+
 
 
         // If we pass a null into the list, it creates an Add New Location Tile

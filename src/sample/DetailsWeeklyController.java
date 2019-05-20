@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -464,12 +465,7 @@ public class DetailsWeeklyController extends TimerTask{
         sunPosition.setText(scAPI.getSunPositionNow(detailsPageLocation).getAltitude() +  "°");
         String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
         chanceOfRain.setText(rainOutput);
-        java.awt.Image icon = cw.getIcon();
-        BufferedImage img = new BufferedImage(icon.getWidth(null), icon.getHeight(null), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D drawer = img.createGraphics();
-        drawer.drawImage(img, 0,0,null);
-        drawer.dispose();
-        sunType.setImage(SwingFXUtils.toFXImage(img, null));
+        sunType.setImage(cw.getIcon());
 
     }
 

@@ -78,15 +78,11 @@ public class ListItem {
 
 
 
-        try {
-            weatherIcon.setImage(new Image(new FileInputStream("pics/" + weather.weather.get(0).description + ".png")));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        weatherIcon.setImage(weather.getIcon());
         locationValue.setText(weather.cityName);
         temperatureValue.setText(String.valueOf(weather.mainParameters.temperature));
         visibilityValue.setText(weather.visibility);
-        chanceOfRainValue.setText(String.valueOf(weather.rain.rainAmt));
+        chanceOfRainValue.setText("0");//String.valueOf(weather.rain.rainAmt));
         sunPositionValue.setText(String.valueOf(sunPosition.getAzimuth()));
         cloudCoverValue.setText(String.valueOf(weather.clouds.cloudiness));
         currentLocationIcon.setVisible(isCurrentLocation);

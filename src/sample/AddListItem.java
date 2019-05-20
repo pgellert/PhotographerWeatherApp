@@ -37,8 +37,6 @@ public class AddListItem {
 
     @FXML
     public void addLocationClicked(MouseEvent arg0) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../../formihnnea2/src/sample/searchpage.fxml"));
-        Main.stage.setScene(new Scene(root, 400, 700));
-        Main.stage.show();
+        Main.navigateToSearchPage();
     }
 }

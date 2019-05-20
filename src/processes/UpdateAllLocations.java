@@ -22,6 +22,7 @@ public class UpdateAllLocations {
     private Map<Location, ForecastInformationDay> hourlyForecasts = new HashMap<>();
     private Map<Location, CurrentWeather> allCurrentWeather = new HashMap<>();
     private Map<Location, SunPosition> currentSunPositions = new HashMap<>();
+
     private List<Location> locations = new ArrayList<>();
 
     private static UpdateAllLocations uwa;
@@ -90,6 +91,10 @@ public class UpdateAllLocations {
         hourlyForecasts.remove(location);
         allCurrentWeather.remove(location);
         currentSunPositions.remove(location);
+    }
+
+    public List<Location> getLocations() {
+        return locations;
     }
 
     public ForecastInformationWeek getDaily(Location location){

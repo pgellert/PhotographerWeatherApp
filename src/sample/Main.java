@@ -17,6 +17,7 @@ public class Main extends Application {
     private static Parent mainTesterPage;
     private static Parent detailsPage;
     private static Parent settingPage;
+    private static Parent searchPage;
 
     private static final int PAGE_WIDTH = 479;
     private static final int PAGE_HEIGHT = 673;
@@ -39,6 +40,13 @@ public class Main extends Application {
         stage.show();
     }
 
+    public static void navigateToSearchPage() throws IOException {
+        System.out.println("goto search page");
+
+        stage.setScene(new Scene(searchPage, PAGE_WIDTH, PAGE_HEIGHT));
+        stage.show();
+    }
+
     public static void navigateToSettings() throws IOException {
         System.out.println("goto settings page");
 
@@ -52,11 +60,12 @@ public class Main extends Application {
         mainTesterPage = FXMLLoader.load(getClass().getResource("main.fxml"));
         detailsPage = FXMLLoader.load(getClass().getResource("detailpage.fxml"));
         settingPage = FXMLLoader.load(getClass().getResource("settingspage.fxml"));
+        searchPage = FXMLLoader.load(getClass().getResource("searchpage.fxml"));
 
         this.stage = primaryStage;
         stage.setTitle("Weather App for Photographers");
-        //loadMain();
-        loadMainTester(); //this is for the details page ui designers
+        loadMain();
+        //loadMainTester(); //this is for the details page ui designers
     }
 
     private void loadMainTester(){
@@ -74,34 +83,3 @@ public class Main extends Application {
         launch(args);
     }
 }
-
-/*
-package sample;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-public class Main extends Application {
-
-    public static Stage stage;
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        this.stage = primaryStage;
-
-        Parent root = FXMLLoader.load(getClass().getResource("mainpage.fxml"));
-        primaryStage.setTitle("Weather Photo");
-        primaryStage.setScene(new Scene(root, 400, 700));
-        primaryStage.setResizable(false);
-        primaryStage.show();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-}
- */
