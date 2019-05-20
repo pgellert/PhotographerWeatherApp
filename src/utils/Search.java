@@ -47,9 +47,9 @@ public class Search {
 
     //Autocomplete input given to function by search bar
     public static List<Location> autoCompleteInput(String stringLocation){
-        String query = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + stringLocation + "&key=" + api_id_google;
+        String query = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%22" + stringLocation.replace(" ", "%20") + "%22&key=" + api_id_google;
         JSONObject jobj = callQuery(query);
-
+        System.out.println(query);
         System.out.println(jobj);
 
         Gson g = new Gson();
@@ -76,5 +76,8 @@ public class Search {
 
     //Cannot get actual 'current' location - have to ask on startup
 
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+
+        System.out.println(autoCompleteInput("Cambridge, UK").get(0).name);
+    }
 }
