@@ -40,6 +40,11 @@ public class Search {
         return new Coordinate(location.get("lng").getAsString(), location.get("lat").getAsString());
     }
 
+    public static Location getCompletedLocation(Location location){
+        Location locationToReturn = autoCompleteInput(location.name).get(0);
+        return locationToReturn;
+    }
+
     //Autocomplete input given to function by search bar
     public static List<Location> autoCompleteInput(String stringLocation){
         String query = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + stringLocation + "&key=" + api_id_google;

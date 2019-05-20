@@ -89,11 +89,4 @@ public class scAPI {
         return getSunTimesWeek(lat, lon);
     }
 
-    public static void main(String[] args) {
-        List<SunTimes> sunTimes = scAPI.getSunTimesWeek(LocationFinder.getCurrentLocation());
-
-        System.out.println(sunTimes.get(0).getRise());
-
-    }
-
 }
