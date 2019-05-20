@@ -330,7 +330,7 @@ public class DetailsWeeklyController extends TimerTask{
         btnWeekly.setSelected(true);
         CurrentWeather cw = OWM.getCurrentWeather(detailsPageLocation);
         locate.setText(Main.detailsPageLocation.name);
-        List<DailyForecast> list = OWM.getWeekForecast(Main.detailsPageLocation).forecasts;
+        List<DailyForecast> listDaily = OWM.getWeekForecast(Main.detailsPageLocation).forecasts;
         //set up time fields
         Date date = new Date();   // given date
         Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
@@ -355,21 +355,21 @@ public class DetailsWeeklyController extends TimerTask{
         time8.setText(simpleDateFormat.format(calendar.getTime()));
 
         //sets up temps
-        String bd = Conversions.convertToPreferredTemperature(list.get(0).mainParameters.temperature);
+        String bd = Conversions.convertToPreferredTemperature(listDaily.get(0).mainParameters.temperature);
 
-        String bd2 = Conversions.convertToPreferredTemperature(list.get(1).mainParameters.temperature);
+        String bd2 = Conversions.convertToPreferredTemperature(listDaily.get(1).mainParameters.temperature);
 
-        String bd3 = Conversions.convertToPreferredTemperature(list.get(2).mainParameters.temperature);
+        String bd3 = Conversions.convertToPreferredTemperature(listDaily.get(2).mainParameters.temperature);
 
-        String bd4 = Conversions.convertToPreferredTemperature(list.get(3).mainParameters.temperature);
+        String bd4 = Conversions.convertToPreferredTemperature(listDaily.get(3).mainParameters.temperature);
 
-        String bd5 = Conversions.convertToPreferredTemperature(list.get(4).mainParameters.temperature);
+        String bd5 = Conversions.convertToPreferredTemperature(listDaily.get(4).mainParameters.temperature);
 
-        String bd6 = Conversions.convertToPreferredTemperature(list.get(5).mainParameters.temperature);
+        String bd6 = Conversions.convertToPreferredTemperature(listDaily.get(5).mainParameters.temperature);
 
-        String bd7 = Conversions.convertToPreferredTemperature(list.get(6).mainParameters.temperature);
+        String bd7 = Conversions.convertToPreferredTemperature(listDaily.get(6).mainParameters.temperature);
 
-        String bd8 = Conversions.convertToPreferredTemperature(list.get(7).mainParameters.temperature);
+        String bd8 = Conversions.convertToPreferredTemperature(listDaily.get(7).mainParameters.temperature);
 
         temp1.setText(bd);
 
@@ -388,30 +388,30 @@ public class DetailsWeeklyController extends TimerTask{
         temp8.setText(bd8);
 
 
-        cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
-        cld2.setText(String.valueOf(list.get(1).clouds.cloudiness));
-        cld3.setText(String.valueOf(list.get(2).clouds.cloudiness));
-        cld4.setText(String.valueOf(list.get(3).clouds.cloudiness));
-        cld5.setText(String.valueOf(list.get(4).clouds.cloudiness));
-        cld6.setText(String.valueOf(list.get(5).clouds.cloudiness));
-        cld7.setText(String.valueOf(list.get(6).clouds.cloudiness));
-        cld8.setText(String.valueOf(list.get(7).clouds.cloudiness));
+        cld1.setText(String.valueOf(listDaily.get(0).clouds.cloudiness));
+        cld2.setText(String.valueOf(listDaily.get(1).clouds.cloudiness));
+        cld3.setText(String.valueOf(listDaily.get(2).clouds.cloudiness));
+        cld4.setText(String.valueOf(listDaily.get(3).clouds.cloudiness));
+        cld5.setText(String.valueOf(listDaily.get(4).clouds.cloudiness));
+        cld6.setText(String.valueOf(listDaily.get(5).clouds.cloudiness));
+        cld7.setText(String.valueOf(listDaily.get(6).clouds.cloudiness));
+        cld8.setText(String.valueOf(listDaily.get(7).clouds.cloudiness));
 
-        String rainOutput = list.get(0).rain != null ? (list.get(0).rain.rainAmt + "%") : "N/A";
+        String rainOutput = listDaily.get(0).rain != null ? (listDaily.get(0).rain.rainAmt + "%") : "N/A";
         rain1.setText(rainOutput);
-        rainOutput = list.get(1).rain != null ? (list.get(1).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(1).rain != null ? (listDaily.get(1).rain.rainAmt + "%") : "N/A";
         rain2.setText(rainOutput);
-        rainOutput = list.get(2).rain != null ? (list.get(2).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(2).rain != null ? (listDaily.get(2).rain.rainAmt + "%") : "N/A";
         rain3.setText(rainOutput);
-        rainOutput = list.get(3).rain != null ? (list.get(3).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(3).rain != null ? (listDaily.get(3).rain.rainAmt + "%") : "N/A";
         rain4.setText(rainOutput);
-        rainOutput = list.get(4).rain != null ? (list.get(4).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(4).rain != null ? (listDaily.get(4).rain.rainAmt + "%") : "N/A";
         rain5.setText(rainOutput);
-        rainOutput = list.get(5).rain != null ? (list.get(5).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(5).rain != null ? (listDaily.get(5).rain.rainAmt + "%") : "N/A";
         rain6.setText(rainOutput);
-        rainOutput = list.get(6).rain != null ? (list.get(6).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(6).rain != null ? (listDaily.get(6).rain.rainAmt + "%") : "N/A";
         rain7.setText(rainOutput);
-        rainOutput = list.get(7).rain != null ? (list.get(7).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(7).rain != null ? (listDaily.get(7).rain.rainAmt + "%") : "N/A";
         rain8.setText(rainOutput);
 
 
@@ -434,14 +434,14 @@ public class DetailsWeeklyController extends TimerTask{
         sunup6.setText(simpleDateFormat1.format(sunTimes.get(5).getRise()));
         sunup7.setText(simpleDateFormat1.format(sunTimes.get(6).getRise()));
 
-        sun1.setImage(list.get(0).getIcon());
-        sun2.setImage(list.get(1).getIcon());
-        sun3.setImage(list.get(2).getIcon());
-        sun4.setImage(list.get(3).getIcon());
-        sun5.setImage(list.get(4).getIcon());
-        sun6.setImage(list.get(5).getIcon());
-        sun7.setImage(list.get(6).getIcon());
-        sun8.setImage(list.get(7).getIcon());
+        sun1.setImage(listDaily.get(0).getIcon());
+        sun2.setImage(listDaily.get(1).getIcon());
+        sun3.setImage(listDaily.get(2).getIcon());
+        sun4.setImage(listDaily.get(3).getIcon());
+        sun5.setImage(listDaily.get(4).getIcon());
+        sun6.setImage(listDaily.get(5).getIcon());
+        sun7.setImage(listDaily.get(6).getIcon());
+        sun8.setImage(listDaily.get(7).getIcon());
         //sunup8.setText(simpleDateFormat1.format(sunTimes.get(7).getRise()));
 
 

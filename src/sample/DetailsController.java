@@ -326,60 +326,60 @@ public class DetailsController{
 
 
 
-        List<HourlyForecast> list = OWM.getDayForecast(Main.detailsPageLocation).forecasts;
-        String bd = Conversions.convertToPreferredTemperature(list.get(0).mainParameters.temperature);
+        List<HourlyForecast> listHourly = OWM.getDayForecast(Main.detailsPageLocation).forecasts;
+        String bd = Conversions.convertToPreferredTemperature(listHourly.get(0).mainParameters.temperature);
         temp1.setText(bd);
-        String bd2 = Conversions.convertToPreferredTemperature(list.get(1).mainParameters.temperature);
+        String bd2 = Conversions.convertToPreferredTemperature(listHourly.get(1).mainParameters.temperature);
         temp2.setText(bd2);
-        String bd3 = Conversions.convertToPreferredTemperature(list.get(2).mainParameters.temperature);
+        String bd3 = Conversions.convertToPreferredTemperature(listHourly.get(2).mainParameters.temperature);
         temp3.setText(bd3);
-        String bd4 = Conversions.convertToPreferredTemperature(list.get(3).mainParameters.temperature);
+        String bd4 = Conversions.convertToPreferredTemperature(listHourly.get(3).mainParameters.temperature);
         temp4.setText(bd4);
-        String bd5 = Conversions.convertToPreferredTemperature(list.get(4).mainParameters.temperature);
+        String bd5 = Conversions.convertToPreferredTemperature(listHourly.get(4).mainParameters.temperature);
         temp5.setText(bd5);
-        String bd6 = Conversions.convertToPreferredTemperature(list.get(5).mainParameters.temperature);
+        String bd6 = Conversions.convertToPreferredTemperature(listHourly.get(5).mainParameters.temperature);
         temp6.setText(bd6);
-        String bd7 = Conversions.convertToPreferredTemperature(list.get(6).mainParameters.temperature);
+        String bd7 = Conversions.convertToPreferredTemperature(listHourly.get(6).mainParameters.temperature);
         temp7.setText(bd7);
-        String bd8 = Conversions.convertToPreferredTemperature(list.get(7).mainParameters.temperature);
+        String bd8 = Conversions.convertToPreferredTemperature(listHourly.get(7).mainParameters.temperature);
         temp8.setText(bd8);
 
-        cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
-        cld2.setText(String.valueOf(list.get(1).clouds.cloudiness));
-        cld3.setText(String.valueOf(list.get(2).clouds.cloudiness));
-        cld4.setText(String.valueOf(list.get(3).clouds.cloudiness));
-        cld5.setText(String.valueOf(list.get(4).clouds.cloudiness));
-        cld6.setText(String.valueOf(list.get(5).clouds.cloudiness));
-        cld7.setText(String.valueOf(list.get(6).clouds.cloudiness));
-        cld8.setText(String.valueOf(list.get(7).clouds.cloudiness));
+        cld1.setText(String.valueOf(listHourly.get(0).clouds.cloudiness));
+        cld2.setText(String.valueOf(listHourly.get(1).clouds.cloudiness));
+        cld3.setText(String.valueOf(listHourly.get(2).clouds.cloudiness));
+        cld4.setText(String.valueOf(listHourly.get(3).clouds.cloudiness));
+        cld5.setText(String.valueOf(listHourly.get(4).clouds.cloudiness));
+        cld6.setText(String.valueOf(listHourly.get(5).clouds.cloudiness));
+        cld7.setText(String.valueOf(listHourly.get(6).clouds.cloudiness));
+        cld8.setText(String.valueOf(listHourly.get(7).clouds.cloudiness));
 
-        String rainOutput = list.get(0).rain != null ? (list.get(0).rain.rainAmt + "%") : "N/A";
+        String rainOutput = listHourly.get(0).rain != null ? (listHourly.get(0).rain.rainAmt + "%") : "N/A";
         rain1.setText(rainOutput);
-        rainOutput = list.get(1).rain != null ? (list.get(1).rain.rainAmt + "%") : "N/A";
+        rainOutput = listHourly.get(1).rain != null ? (listHourly.get(1).rain.rainAmt + "%") : "N/A";
         rain2.setText(rainOutput);
-        rainOutput = list.get(2).rain != null ? (list.get(2).rain.rainAmt + "%") : "N/A";
+        rainOutput = listHourly.get(2).rain != null ? (listHourly.get(2).rain.rainAmt + "%") : "N/A";
         rain3.setText(rainOutput);
-        rainOutput = list.get(3).rain != null ? (list.get(3).rain.rainAmt + "%") : "N/A";
+        rainOutput = listHourly.get(3).rain != null ? (listHourly.get(3).rain.rainAmt + "%") : "N/A";
         rain4.setText(rainOutput);
-        rainOutput = list.get(4).rain != null ? (list.get(4).rain.rainAmt + "%") : "N/A";
+        rainOutput = listHourly.get(4).rain != null ? (listHourly.get(4).rain.rainAmt + "%") : "N/A";
         rain5.setText(rainOutput);
-        rainOutput = list.get(5).rain != null ? (list.get(5).rain.rainAmt + "%") : "N/A";
+        rainOutput = listHourly.get(5).rain != null ? (listHourly.get(5).rain.rainAmt + "%") : "N/A";
         rain6.setText(rainOutput);
-        rainOutput = list.get(6).rain != null ? (list.get(6).rain.rainAmt + "%") : "N/A";
+        rainOutput = listHourly.get(6).rain != null ? (listHourly.get(6).rain.rainAmt + "%") : "N/A";
         rain7.setText(rainOutput);
-        rainOutput = list.get(7).rain != null ? (list.get(7).rain.rainAmt + "%") : "N/A";
+        rainOutput = listHourly.get(7).rain != null ? (listHourly.get(7).rain.rainAmt + "%") : "N/A";
         rain8.setText(rainOutput);
 
-        sun1.setImage(list.get(0).getIcon());
-        sun2.setImage(list.get(1).getIcon());
-        sun3.setImage(list.get(2).getIcon());
-        sun4.setImage(list.get(3).getIcon());
-        sun5.setImage(list.get(4).getIcon());
-        sun6.setImage(list.get(5).getIcon());
-        sun7.setImage(list.get(6).getIcon());
-        sun8.setImage(list.get(7).getIcon());
+        sun1.setImage(listHourly.get(0).getIcon());
+        sun2.setImage(listHourly.get(1).getIcon());
+        sun3.setImage(listHourly.get(2).getIcon());
+        sun4.setImage(listHourly.get(3).getIcon());
+        sun5.setImage(listHourly.get(4).getIcon());
+        sun6.setImage(listHourly.get(5).getIcon());
+        sun7.setImage(listHourly.get(6).getIcon());
+        sun8.setImage(listHourly.get(7).getIcon());
 
-//        time1.setText(list.get(0).dateTime.toString());
+//        time1.setText(listHourly.get(0).dateTime.toString());
 
 
 //        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
