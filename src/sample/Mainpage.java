@@ -38,7 +38,7 @@ public class Mainpage implements Initializable {
     @FXML
     private MenuButton menu;
 
-    private boolean isAdded;
+    private static boolean isAdded;
 
     @FXML
     private ListView listView;
