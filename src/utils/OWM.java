@@ -49,12 +49,16 @@ public class OWM {
     public static ForecastInformationWeek getWeekForecast(Location location) {
 
         String query;
+
         if (location == null){
             System.out.println("Null location");
             return null;
         }
 
-        if (location.owmId != null){
+        if ((location.coordinate != null) && (location.coordinate.longitude != null & location.coordinate.latitude != null))
+        {
+            query = "http://api.openweathermap.org/data/2.5/forecast?lon=" + location.coordinate.longitude+ "&lat=" + location.coordinate.latitude + "&APPID=" + api_id_owm;
+        } else if (location.owmId != null){
             query = "http://api.openweathermap.org/data/2.5/forecast?id=" + location.owmId+ "&APPID=" + api_id_owm;
         } else if (location.name != null){
             query = "http://api.openweathermap.org/data/2.5/forecast?q=" + location.name.replace(" ", "%20") + "&APPID=" + api_id_owm;
@@ -94,7 +98,9 @@ public class OWM {
             return null;
         }
 
-        if (location.owmId != null){
+        if ((location.coordinate != null) && (location.coordinate.longitude != null & location.coordinate.latitude != null)){
+            query = "http://api.openweathermap.org/data/2.5/forecast?lon=" + location.coordinate.longitude+ "&lat=" + location.coordinate.latitude + "&APPID=" + api_id_owm;
+        } else if (location.owmId != null){
             query = "http://api.openweathermap.org/data/2.5/forecast?id=" + location.owmId+ "&APPID=" + api_id_owm;
         } else if (location.name != null){
             query = "http://api.openweathermap.org/data/2.5/forecast?q=" + location.name.replace(" ", "%20") + "&APPID=" + api_id_owm;
@@ -130,7 +136,9 @@ public class OWM {
     public static CurrentWeather getCurrentWeather(Location location){
         String query;
 
-        if (location.owmId != null){
+        if ((location.coordinate != null) && (location.coordinate.longitude != null & location.coordinate.latitude != null)){
+            query = "http://api.openweathermap.org/data/2.5/weather?lon=" + location.coordinate.longitude+ "&lat=" + location.coordinate.latitude + "&APPID=" + api_id_owm;
+        } else if (location.owmId != null){
             query = "http://api.openweathermap.org/data/2.5/weather?id=" + location.owmId+ "&APPID=" + api_id_owm;
         } else if (location.name != null){
             query = "http://api.openweathermap.org/data/2.5/weather?q=" + location.name.replace(" ", "%20") + "&APPID=" + api_id_owm;

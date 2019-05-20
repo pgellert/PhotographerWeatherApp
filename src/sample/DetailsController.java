@@ -235,6 +235,29 @@ public class DetailsController{
     @FXML
     private Label time8;
 
+    @FXML
+    private ImageView sun1;
+
+    @FXML
+    private ImageView sun2;
+
+    @FXML
+    private ImageView sun3;
+
+    @FXML
+    private ImageView sun4;
+
+    @FXML
+    private ImageView sun5;
+
+    @FXML
+    private ImageView sun6;
+
+    @FXML
+    private ImageView sun7;
+
+    @FXML
+    private ImageView sun8;
 
     //this is the only parent
     private Parent root;
@@ -346,6 +369,15 @@ public class DetailsController{
         rain7.setText(rainOutput);
         rainOutput = list.get(7).rain != null ? (list.get(7).rain.rainAmt + "%") : "N/A";
         rain8.setText(rainOutput);
+
+        sun1.setImage(list.get(0).getIcon());
+        sun2.setImage(list.get(1).getIcon());
+        sun3.setImage(list.get(2).getIcon());
+        sun4.setImage(list.get(3).getIcon());
+        sun5.setImage(list.get(4).getIcon());
+        sun6.setImage(list.get(5).getIcon());
+        sun7.setImage(list.get(6).getIcon());
+        sun8.setImage(list.get(7).getIcon());
 
 //        time1.setText(list.get(0).dateTime.toString());
 

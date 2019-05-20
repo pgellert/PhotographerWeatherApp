@@ -433,6 +433,15 @@ public class DetailsWeeklyController extends TimerTask{
         sunup5.setText(simpleDateFormat1.format(sunTimes.get(4).getRise()));
         sunup6.setText(simpleDateFormat1.format(sunTimes.get(5).getRise()));
         sunup7.setText(simpleDateFormat1.format(sunTimes.get(6).getRise()));
+
+        sun1.setImage(list.get(0).getIcon());
+        sun2.setImage(list.get(1).getIcon());
+        sun3.setImage(list.get(2).getIcon());
+        sun4.setImage(list.get(3).getIcon());
+        sun5.setImage(list.get(4).getIcon());
+        sun6.setImage(list.get(5).getIcon());
+        sun7.setImage(list.get(6).getIcon());
+        sun8.setImage(list.get(7).getIcon());
         //sunup8.setText(simpleDateFormat1.format(sunTimes.get(7).getRise()));
 
 
