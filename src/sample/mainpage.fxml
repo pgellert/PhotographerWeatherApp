@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="container" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Mainpage">
+   <children>
+        <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="360.0" styleClass=".list-view" stylesheets="@listView.css">
+         <StackPane.margin>
+            <Insets left="20.0" right="20.0" top="50.0" />
+         </StackPane.margin></ListView>
+        <MenuButton fx:id="menu" ellipsisString="" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" styleClass=".menu-button" stylesheets="@menuButton.css" StackPane.alignment="TOP_RIGHT">
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#navigateToSettings" text="Settings" />
+            </items>
+         <font>
+            <Font name="Wingdings" size="13.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="10.0" top="10.0" />
+         </StackPane.margin>
+        </MenuButton>
+   </children>
+</StackPane>
