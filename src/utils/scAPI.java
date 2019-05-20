@@ -90,4 +90,8 @@ public class scAPI {
         return getSunTimesWeek(lat, lon);
     }
 
+
+    public static void main(String[] args) {
+        System.out.println(getSunPositionNow(Location.fromName("Moscow")).getAltitude());
+    }
 }

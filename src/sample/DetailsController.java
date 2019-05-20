@@ -39,7 +39,7 @@ import static sample.Main.*;
 
 
 
-public class DetailsController extends TimerTask{
+public class DetailsController{
 
 
     //set up IDs for all variables in the system
@@ -243,15 +243,12 @@ public class DetailsController extends TimerTask{
 
     //called when the back button is pressed
     public void back() throws IOException {
-        t.cancel();
-        t.purge();
         Main.navigateBackToMainPage();
     }
 
     //When the button is toggled we switch to weekly
     public void weeklySwitch(ActionEvent event) throws IOException {
-        t.cancel();
-        t.purge();
+
         Parent weeklyParent = new FXMLLoader().load(getClass().getResource("detailpageweekly.fxml"));
         Scene weeklyScene = new Scene(weeklyParent);
 
@@ -339,8 +336,6 @@ public class DetailsController extends TimerTask{
 //        String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
 //        chanceOfRain.setText(rainOutput);
         updateCurentWeather(cw);
-        t = new Timer();
-        t.scheduleAtFixedRate(this,0, 1000);
 
 
     }
@@ -354,19 +349,10 @@ public class DetailsController extends TimerTask{
         sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
         sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
         cloudCover.setText(new Double(cw.clouds.cloudiness).intValue() +"%");
-        sunPosition.setText(scAPI.getSunPositionNow(detailsPageLocation).getAltitude() +  "°");
+        sunPosition.setText(String.valueOf(scAPI.getSunPositionNow(detailsPageLocation).getAltitude()) +  "°");
         String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
         chanceOfRain.setText(rainOutput);
         sunType.setImage(cw.getIcon());
-    }
-
-    @Override
-    public void run() {
-        /*
-         TODO: (Comment from Gellert) when the TimerTask calls this, the CurrentWeather is not actually updated with this code, is cw is the stored weather.
-         */
-
-        updateCurentWeather(cw);
     }
 }
 
