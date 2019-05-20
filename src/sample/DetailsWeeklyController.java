@@ -356,23 +356,21 @@ public class DetailsWeeklyController extends TimerTask{
         List<DailyForecast> list = OWM.getWeekForecast(new Location(getCity()+","+getCountry())).forecasts;
 
         //sets up temps
-        double bd = Conversions.toCelsius(list.get(0).temperature);
-        for(DailyForecast d: list){
-            System.out.println(d.temperature);
-        }
-        double bd2 = Conversions.toCelsius(list.get(1).temperature);
+        double bd = Conversions.toCelsius(list.get(0).mainParameters.temperature);
 
-        double bd3 =Conversions.toCelsius(list.get(2).temperature);
+        double bd2 = Conversions.toCelsius(list.get(1).mainParameters.temperature);
 
-        double bd4 =Conversions.toCelsius(list.get(3).temperature);
+        double bd3 =Conversions.toCelsius(list.get(2).mainParameters.temperature);
 
-        double bd5 =Conversions.toCelsius(list.get(4).temperature);
+        double bd4 =Conversions.toCelsius(list.get(3).mainParameters.temperature);
 
-        double bd6 =Conversions.toCelsius(list.get(5).temperature);
+        double bd5 =Conversions.toCelsius(list.get(4).mainParameters.temperature);
 
-        double bd7 = Conversions.toCelsius(list.get(6).temperature);
+        double bd6 =Conversions.toCelsius(list.get(5).mainParameters.temperature);
 
-        double bd8 =Conversions.toCelsius(list.get(7).temperature);
+        double bd7 = Conversions.toCelsius(list.get(6).mainParameters.temperature);
+
+        double bd8 =Conversions.toCelsius(list.get(7).mainParameters.temperature);
 
         temp1.setText(String.format("%.1f", bd) + "°");
 
