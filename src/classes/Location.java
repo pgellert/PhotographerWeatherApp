@@ -1,6 +1,7 @@
 package classes;
 
 import classes.coords.Coordinate;
+import utils.Search;
 
 public class Location {
 
@@ -9,7 +10,10 @@ public class Location {
     public String owmId;
     public Coordinate coordinate;
 
-    public static Location fromName(String name){ return new Location(name);}
+    public static Location fromName(String name){
+        Location locationToFix = new Location(name);
+        return Search.getCompletedLocation(locationToFix);
+    }
 
     public Location(String name, String googleId, Coordinate coordinate){
         this.name = name;
@@ -17,7 +21,7 @@ public class Location {
         this.coordinate = coordinate;
     }
 
-    public Location(String name){
+    private Location(String name){
         this.name = name;
     }
 
