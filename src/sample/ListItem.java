@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.shredzone.commons.suncalc.SunPosition;
 import processes.UpdateAllLocations;
+import utils.Conversions;
 import utils.OWM;
 import utils.scAPI;
 
@@ -76,15 +77,18 @@ public class ListItem {
              - sun position
          */
 
-
-
         weatherIcon.setImage(weather.getIcon());
         locationValue.setText(weather.cityName);
-        temperatureValue.setText(String.valueOf(weather.mainParameters.temperature));
+        // TODO: change to K based on settings
+        temperatureValue.setText(Math.round(Conversions.toCelsius(weather.mainParameters.temperature)) + "°C");
         visibilityValue.setText(weather.visibility);
-        chanceOfRainValue.setText("0");//String.valueOf(weather.rain.rainAmt));
-        sunPositionValue.setText(String.valueOf(sunPosition.getAzimuth()));
-        cloudCoverValue.setText(String.valueOf(weather.clouds.cloudiness));
+        if(weather.rain == null){
+            chanceOfRainValue.setText("0%");
+        } else{
+            chanceOfRainValue.setText(weather.rain.rainAmt + "%");
+        }
+        sunPositionValue.setText(Math.round(sunPosition.getAltitude()) + "°");
+        cloudCoverValue.setText(Math.round(weather.clouds.cloudiness) + "%");
         currentLocationIcon.setVisible(isCurrentLocation);
     }
 
