@@ -356,7 +356,7 @@ public class DetailsWeeklyController extends TimerTask{
         List<DailyForecast> list = OWM.getWeekForecast(new Location(getCity()+","+getCountry())).forecasts;
 
         //sets up temps
-        double bd = (double) Conversions.toCelsius(list.get(0).temperature);
+        double bd = Conversions.toCelsius(list.get(0).temperature);
         temp1.setText(String.valueOf(bd) + "°");
         Conversions.toCelsius(list.get(1).temperature);
         temp2.setText(String.valueOf(bd) + "°");
