@@ -1,214 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DetailsWeeklyController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DetailsWeeklyController">
     <children>
-      <ScrollPane fx:id="horizScrollPane" hbarPolicy="ALWAYS" layoutY="336.0" pannable="true" prefHeight="337.0" prefWidth="479.0" vbarPolicy="NEVER">
-        <content>
-          <AnchorPane fx:id="anchorPane" prefHeight="337.0" prefWidth="700.0">
-               <children>
-                  <GridPane fx:id="hourlyGrid" prefHeight="320.0" prefWidth="629.0" style="-fx-background-color: FFFFFF;">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="35.0" prefWidth="39.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.0" minWidth="89.0" prefWidth="87.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <ImageView fitHeight="25.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/visibility.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="39.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/rainchance.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="37.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/clouds.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/temp.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="sun1" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/sun.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="sun2" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/sun.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="sun3" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/sun.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="sun4" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/sun.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="sun5" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/sun.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="sun6" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/sun.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="sun7" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/sun.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="sun8" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../noahpics/sun.png" />
-                           </image>
-                        </ImageView>
-                        <Label fx:id="temp1" text="20" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Label fx:id="time1" text="24 May" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                        <Label fx:id="time2" text="25 Nay" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                        <Label fx:id="time3" text="26 May" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                        <Label fx:id="time4" text="27 May" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                        <Label fx:id="time5" text="28 May" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                        <Label fx:id="time6" text="29 May" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                        <Label fx:id="time7" text="30 May" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                        <Label fx:id="time8" text="31 May" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                        <Label fx:id="temp2" text="18" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Label fx:id="temp3" text="17" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Label fx:id="vis1" text="78%" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Label fx:id="vis2" text="78%" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Label fx:id="vis3" text="78%" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Label fx:id="temp4" text="15" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Label fx:id="temp5" text="21" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Label fx:id="rain4" text="76%" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Label fx:id="vis4" text="78%" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Label fx:id="rain1" text="76%" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Label fx:id="rain2" text="76%" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Label fx:id="rain3" text="76%" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Label fx:id="rain5" text="76%" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Label fx:id="temp6" text="23" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Label fx:id="temp7" text="14" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Label fx:id="vis5" text="78%" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Label fx:id="vis6" text="78%" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Label fx:id="temp8" text="11" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Label fx:id="vis7" text="78%" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Label fx:id="vis8" text="78%" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Label fx:id="rain6" text="76%" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Label fx:id="rain7" text="76%" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Label fx:id="rain8" text="76%" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Label fx:id="cld1" text="14%" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Label fx:id="cld2" text="14%" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Label fx:id="cld3" text="14%" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Label fx:id="cld4" text="14%" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Label fx:id="cld5" text="14%" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Label fx:id="cld6" text="14%" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Label fx:id="cld7" text="14%" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Label fx:id="cld8" text="14%" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../noahpics/sunrise.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="49.0" fitWidth="42.0" pickOnBounds="true" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../noahpics/sunset.png" />
-                           </image>
-                        </ImageView>
-                        <Label fx:id="sunup1" text="6:00" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-                        <Label fx:id="sunup3" text="10:00" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-                        <Label fx:id="sunup2" text="10:00" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-                        <Label fx:id="sundown1" text="6:00" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-                        <Label fx:id="sundown2" text="10:00" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-                        <Label fx:id="sunup4" text="10:00" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-                        <Label fx:id="sunup5" text="10:00" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-                        <Label fx:id="sundown3" text="10:00" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-                        <Label fx:id="sunup6" text="10:00" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-                        <Label fx:id="sundown4" text="10:00" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-                        <Label fx:id="sundown5" text="10:00" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-                        <Label fx:id="sundown6" text="10:00" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-                        <Label fx:id="sunup7" text="10:00" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-                        <Label fx:id="sundown7" text="10:00" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-                        <Label fx:id="sunup8" text="10:00" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-                        <Label fx:id="sundown8" text="10:00" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-                     </children>
-                  </GridPane>
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
-      <ToggleButton fx:id="btnHourly" layoutX="176.0" layoutY="290.0" mnemonicParsing="false" text="Hourly">
-         <toggleGroup>
-            <ToggleGroup fx:id="timeGroup" />
-         </toggleGroup></ToggleButton>
-      <GridPane layoutX="50.0" layoutY="28.0" prefHeight="66.0" prefWidth="411.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="208.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.0" minWidth="10.0" prefWidth="203.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label fx:id="locate" prefHeight="66.0" prefWidth="208.0" text="Oslo, Norway">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="sunType" fitHeight="60.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
-               <image>
-                  <Image url="@../noahpics/sun.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="temperature" prefHeight="17.0" prefWidth="106.0" text="12 C°" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
+        <ScrollPane fx:id="horizScrollPane" hbarPolicy="ALWAYS" layoutY="336.0" pannable="true" prefHeight="337.0" prefWidth="479.0" vbarPolicy="NEVER">
+            <content>
+                <AnchorPane fx:id="anchorPane" prefHeight="337.0" prefWidth="700.0">
+                    <children>
+                        <GridPane fx:id="hourlyGrid" prefHeight="320.0" prefWidth="629.0" style="-fx-background-color: FFFFFF;">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="35.0" prefWidth="39.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.0" minWidth="89.0" prefWidth="87.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <ImageView fitHeight="25.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/visibility.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="39.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/rainchance.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="37.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/clouds.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="42.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/temp.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="sun1" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/sun.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="sun2" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/sun.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="sun3" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/sun.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="sun4" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/sun.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="sun5" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/sun.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="sun6" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/sun.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="sun7" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/sun.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="sun8" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../noahpics/sun.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="temp1" text="20" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Label fx:id="time1" text="24 May" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                <Label fx:id="time2" text="25 Nay" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                <Label fx:id="time3" text="26 May" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                <Label fx:id="time4" text="27 May" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                <Label fx:id="time5" text="28 May" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                <Label fx:id="time6" text="29 May" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                <Label fx:id="time7" text="30 May" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                <Label fx:id="time8" text="31 May" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                <Label fx:id="temp2" text="18" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Label fx:id="temp3" text="17" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Label fx:id="vis1" text="78%" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <Label fx:id="vis2" text="78%" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <Label fx:id="vis3" text="78%" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <Label fx:id="temp4" text="15" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Label fx:id="temp5" text="21" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Label fx:id="rain4" text="76%" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <Label fx:id="vis4" text="78%" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <Label fx:id="rain1" text="76%" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <Label fx:id="rain2" text="76%" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <Label fx:id="rain3" text="76%" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <Label fx:id="rain5" text="76%" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <Label fx:id="temp6" text="23" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Label fx:id="temp7" text="14" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Label fx:id="vis5" text="78%" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <Label fx:id="vis6" text="78%" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <Label fx:id="temp8" text="11" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Label fx:id="vis7" text="78%" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <Label fx:id="vis8" text="78%" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <Label fx:id="rain6" text="76%" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <Label fx:id="rain7" text="76%" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <Label fx:id="rain8" text="76%" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <Label fx:id="cld1" text="14%" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                <Label fx:id="cld2" text="14%" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                <Label fx:id="cld3" text="14%" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                <Label fx:id="cld4" text="14%" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                <Label fx:id="cld5" text="14%" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                <Label fx:id="cld6" text="14%" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                <Label fx:id="cld7" text="14%" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                <Label fx:id="cld8" text="14%" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" GridPane.rowIndex="6">
+                                    <image>
+                                        <Image url="@../noahpics/sunrise.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="49.0" fitWidth="42.0" pickOnBounds="true" GridPane.rowIndex="7">
+                                    <image>
+                                        <Image url="@../noahpics/sunset.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="sunup1" text="6:00" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <Label fx:id="sunup3" text="10:00" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <Label fx:id="sunup2" text="10:00" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <Label fx:id="sundown1" text="6:00" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                                <Label fx:id="sundown2" text="10:00" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                                <Label fx:id="sunup4" text="10:00" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <Label fx:id="sunup5" text="10:00" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <Label fx:id="sundown3" text="10:00" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                                <Label fx:id="sunup6" text="10:00" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <Label fx:id="sundown4" text="10:00" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                                <Label fx:id="sundown5" text="10:00" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                                <Label fx:id="sundown6" text="10:00" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                                <Label fx:id="sunup7" text="10:00" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <Label fx:id="sundown7" text="10:00" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                                <Label fx:id="sunup8" text="10:00" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <Label fx:id="sundown8" text="10:00" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                            </children>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <ToggleButton fx:id="btnHourly" layoutX="176.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#hourlySwitch" text="Hourly">
+            <toggleGroup>
+                <ToggleGroup fx:id="timeGroup" />
+            </toggleGroup></ToggleButton>
+        <GridPane layoutX="50.0" layoutY="28.0" prefHeight="66.0" prefWidth="411.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="208.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.0" minWidth="10.0" prefWidth="203.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="locate" prefHeight="66.0" prefWidth="208.0" text="Oslo, Norway">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+                <ImageView fx:id="sunType" fitHeight="60.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                    <image>
+                        <Image url="@../noahpics/sun.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="temperature" prefHeight="17.0" prefWidth="106.0" text="12 C°" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            </children>
+        </GridPane>
         <GridPane layoutX="25.0" layoutY="86.0" prefHeight="198.0" prefWidth="452.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -389,16 +385,16 @@
                 <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" />
             </graphic>
         </Button>
-      <ToggleButton fx:id="btnWeekly" layoutX="234.0" layoutY="290.0" mnemonicParsing="false" text="Weekly" toggleGroup="$timeGroup" />
-      <GridPane layoutX="-229.0" layoutY="116.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
+        <ToggleButton fx:id="btnWeekly" layoutX="234.0" layoutY="290.0" mnemonicParsing="false" text="Weekly" toggleGroup="$timeGroup" />
+        <GridPane layoutX="-229.0" layoutY="116.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+        </GridPane>
     </children>
 </Pane>

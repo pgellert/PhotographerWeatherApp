@@ -2,6 +2,8 @@ package sample;
 
 import classes.Location;
 import classes.currentweather.CurrentWeather;
+import classes.forecast.daily.DailyForecast;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,16 +18,22 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import utils.Conversions;
 import utils.OWM;
+import utils.scAPI;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
-
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import static sample.Main.*;
 
 
-public class DetailsWeeklyController {
+public class DetailsWeeklyController extends TimerTask{
 
 
     //set up IDs for all variables in the system
@@ -272,10 +280,13 @@ public class DetailsWeeklyController {
 
     //this is the only parent
     private Parent root;
-
+    private CurrentWeather cw;
+    private Timer t2;
 
     //called when the back button is pressed
     public void back() throws IOException {
+        //t2.cancel();
+        //t2.purge();
         root = FXMLLoader.load(getClass().getResource("main.fxml"));
         Main.stage.setTitle("Back from Weekly");
         Main.stage.setScene(new Scene(root, 479, 673));
@@ -284,7 +295,8 @@ public class DetailsWeeklyController {
 
     //When the button is toggled we switch to weekly
     public void weeklySwitch(ActionEvent event) throws IOException {
-
+        //t2.cancel();
+        //t2.purge();
         Parent weeklyParent = new FXMLLoader().load(getClass().getResource("detailpageweekly.fxml"));
         Scene weeklyScene = new Scene(weeklyParent);
 
@@ -296,16 +308,20 @@ public class DetailsWeeklyController {
     }
 
     //When the button is toggled we switch to hourly
-    public void hourlySwitch(ActionEvent event) throws IOException {
-
-        Parent hourlyParent = new FXMLLoader().load(getClass().getResource("detailpage.fxml"));
-        Scene hourlyScene = new Scene(hourlyParent);
-
-        //Get the stage information from the clicked
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(hourlyScene);
-        window.show();
-
+    public void hourlySwitch() throws IOException {
+        //t2.cancel();
+        //t2.purge();
+        root = FXMLLoader.load(getClass().getResource("detailpage.fxml"));
+        Main.stage.setTitle("Back from Weekly");
+        Main.stage.setScene(new Scene(root, 479, 673));
+        stage.show();
+//        Parent hourlyParent = new FXMLLoader().load(getClass().getResource("detailpage.fxml"));
+//        Scene hourlyScene = new Scene(hourlyParent);
+//
+//        //Get the stage information from the clicked
+//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        window.setScene(hourlyScene);
+//        window.show();
 
     }
     //Mihnea's method which initializes all fields in the top part of the screen
@@ -313,6 +329,78 @@ public class DetailsWeeklyController {
         btnWeekly.setSelected(true);
         CurrentWeather cw = OWM.getCurrentWeather(new Location(getCity()+","+getCountry()));
         locate.setText(getCity() + ", " + getCountry() );
+        List<DailyForecast> list = OWM.getWeekForecast(new Location(getCity()+","+getCountry())).forecasts;
+        System.out.println(list.size());
+        System.out.println(list.get(0).temperature);
+        double bd = (double) Conversions.toCelsius(list.get(0).temperature.day);
+        temp1.setText(String.valueOf(bd) + "°");
+        Conversions.toCelsius(list.get(1).temperature.day);
+        temp2.setText(String.valueOf(bd) + "°");
+        Conversions.toCelsius(list.get(2).temperature.day);
+        temp3.setText(String.valueOf(bd) + "°");
+        Conversions.toCelsius(list.get(3).temperature.day);
+        temp4.setText(String.valueOf(bd) + "°");
+        Conversions.toCelsius(list.get(4).temperature.day);
+        temp5.setText(String.valueOf(bd) + "°");
+        Conversions.toCelsius(list.get(5).temperature.day);
+        temp6.setText(String.valueOf(bd) + "°");
+        Conversions.toCelsius(list.get(6).temperature.day);
+        temp7.setText(String.valueOf(bd) + "°");
+        Conversions.toCelsius(list.get(7).temperature.day);
+        temp8.setText(String.valueOf(bd) + "°");
+
+        cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
+        cld2.setText(String.valueOf(list.get(1).clouds.cloudiness));
+        cld3.setText(String.valueOf(list.get(2).clouds.cloudiness));
+        cld4.setText(String.valueOf(list.get(3).clouds.cloudiness));
+        cld5.setText(String.valueOf(list.get(4).clouds.cloudiness));
+        cld6.setText(String.valueOf(list.get(5).clouds.cloudiness));
+        cld7.setText(String.valueOf(list.get(6).clouds.cloudiness));
+        cld8.setText(String.valueOf(list.get(7).clouds.cloudiness));
+
+        String rainOutput = list.get(0).rain != null ? (list.get(0).rain.rainAmt + "%") : "N/A";
+        rain1.setText(rainOutput);
+        rainOutput = list.get(1).rain != null ? (list.get(1).rain.rainAmt + "%") : "N/A";
+        rain2.setText(rainOutput);
+        rainOutput = list.get(2).rain != null ? (list.get(2).rain.rainAmt + "%") : "N/A";
+        rain3.setText(rainOutput);
+        rainOutput = list.get(3).rain != null ? (list.get(3).rain.rainAmt + "%") : "N/A";
+        rain4.setText(rainOutput);
+        rainOutput = list.get(4).rain != null ? (list.get(4).rain.rainAmt + "%") : "N/A";
+        rain5.setText(rainOutput);
+        rainOutput = list.get(5).rain != null ? (list.get(5).rain.rainAmt + "%") : "N/A";
+        rain6.setText(rainOutput);
+        rainOutput = list.get(6).rain != null ? (list.get(6).rain.rainAmt + "%") : "N/A";
+        rain7.setText(rainOutput);
+        rainOutput = list.get(7).rain != null ? (list.get(7).rain.rainAmt + "%") : "N/A";
+        rain8.setText(rainOutput);
+
+
+
+
+
+
+
+//        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
+//        bd = bd.round(new MathContext(3));
+//        temperature.setText(String.valueOf(bd) + "°");
+//        visibility.setText(cw.visibility);
+//        sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
+//        sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
+//        cloudCover.setText(new Double(cw.clouds.cloudiness).intValue() +"%");
+//        String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
+//        chanceOfRain.setText(rainOutput);
+        updateCurentWeather(cw);
+        //t2 = new Timer();
+
+        //t2.scheduleAtFixedRate(this,0,1000);
+
+    }
+
+    private void updateCurentWeather(CurrentWeather cw){
+        System.out.println("refresh current weather");
+        System.out.println(cw.mainParameters.temperature);
+        System.out.println("once");
         BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
         bd = bd.round(new MathContext(3));
         temperature.setText(String.valueOf(bd) + "°");
@@ -320,9 +408,20 @@ public class DetailsWeeklyController {
         sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
         sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
         cloudCover.setText(new Double(cw.clouds.cloudiness).intValue() +"%");
+        //sunPosition.setText(scAPI.getSunPositionNow(new Location(getCity()+","+getCountry())).getAzimuth() +  "°");
         String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
         chanceOfRain.setText(rainOutput);
+        java.awt.Image icon = cw.getIcon();
+        BufferedImage img = new BufferedImage(icon.getWidth(null), icon.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D drawer = img.createGraphics();
+        drawer.drawImage(img, 0,0,null);
+        drawer.dispose();
+        sunType.setImage(SwingFXUtils.toFXImage(img, null));
 
     }
 
+    @Override
+    public void run() {
+        updateCurentWeather(cw);
+    }
 }
