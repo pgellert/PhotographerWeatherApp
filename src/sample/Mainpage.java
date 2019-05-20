@@ -44,10 +44,7 @@ public class Mainpage implements Initializable {
 
     @FXML
     private void navigateToSettings(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../../formihnnea2/src/sample/settingspage.fxml"));
-        Main.stage.setScene(new Scene(root, 400, 700));
-        Main.stage.show();
-
+        Main.navigateToSettings();
     }
 
     @Override

@@ -34,10 +34,6 @@ import utils.OWM;
 import utils.Conversions;
 import utils.scAPI;
 
-import javax.xml.crypto.dsig.SignatureMethod;
-
-import static sample.Main.*;
-
 
 
 public class DetailsController extends TimerTask{
@@ -248,10 +244,7 @@ public class DetailsController extends TimerTask{
     public void back() throws IOException {
         t.cancel();
         t.purge();
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        Main.stage.setTitle("Back from Details");
-        Main.stage.setScene(new Scene(root, 479, 673));
-        stage.show();
+        Main.navigateBackToMainPage();
     }
 
     //When the button is toggled we switch to weekly
@@ -311,11 +304,11 @@ public class DetailsController extends TimerTask{
 
 
 
-        cw = OWM.getCurrentWeather(new Location(getCity()+","+getCountry()));
-        locate.setText(getCity() + ", " + getCountry() );
+        cw = OWM.getCurrentWeather(Main.detailsPageLocation);
+        locate.setText(Main.detailsPageLocation.name);
 
         //sets up temperature estimates
-        List<HourlyForecast> list = OWM.getDayForecast(new Location(getCity()+","+getCountry())).forecasts;
+        List<HourlyForecast> list = OWM.getDayForecast(Main.detailsPageLocation).forecasts;
         double bd = Conversions.toCelsius(list.get(0).mainParameters.temperature);
         temp1.setText(String.format("%.1f", bd) + "°");
         double bd2 = Conversions.toCelsius(list.get(1).mainParameters.temperature);
