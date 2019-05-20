@@ -6,11 +6,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="container" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Mainpage">
+<StackPane fx:id="container" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Mainpage">
    <children>
-        <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="360.0" styleClass=".list-view" stylesheets="@listView.css">
+        <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="620.0" prefWidth="420.0" styleClass=".list-view" stylesheets="@listView.css">
          <StackPane.margin>
-            <Insets left="20.0" right="20.0" top="50.0" />
+            <Insets left="20.0" right="20.0" top="53.0" />
          </StackPane.margin></ListView>
         <MenuButton fx:id="menu" ellipsisString="" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" styleClass=".menu-button" stylesheets="@menuButton.css" StackPane.alignment="TOP_RIGHT">
             <items>
