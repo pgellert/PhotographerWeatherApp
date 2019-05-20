@@ -2,6 +2,7 @@ package sample;
 
 import classes.Location;
 import classes.currentweather.CurrentWeather;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,6 +37,8 @@ public class Mainpage implements Initializable {
 
     @FXML
     private MenuButton menu;
+
+    private boolean isAdded;
 
     @FXML
     private ListView listView;
@@ -72,10 +75,11 @@ public class Mainpage implements Initializable {
 
          */
 
-
-        UpdateAllLocations.getUwa().addLocation(Location.fromName("Cambridge, UK"));
-        UpdateAllLocations.getUwa().addLocation(Location.fromName("Bristol, UK"));
-
+        if (!(isAdded)) {
+            UpdateAllLocations.getUwa().addLocation(Location.fromName("Cambridge, UK"));
+            UpdateAllLocations.getUwa().addLocation(Location.fromName("Bristol, UK"));
+            isAdded = true;
+        }
 
         boolean isFirst = true;
         // Populate list

@@ -71,42 +71,42 @@
                                         <Image url="@../noahpics/temp.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <ImageView fx:id = "sun1" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <image>
                                         <Image url="@../noahpics/sun.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <ImageView fx:id = "sun2" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <image>
                                         <Image url="@../noahpics/sun.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <ImageView fx:id = "sun3" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <image>
                                         <Image url="@../noahpics/sun.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <ImageView fx:id = "sun4" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <image>
                                         <Image url="@../noahpics/sun.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <ImageView fx:id = "sun5" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <image>
                                         <Image url="@../noahpics/sun.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <ImageView fx:id = "sun6" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <image>
                                         <Image url="@../noahpics/sun.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <ImageView fx:id = "sun7" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <image>
                                         <Image url="@../noahpics/sun.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <ImageView fx:id = "sun8" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <image>
                                         <Image url="@../noahpics/sun.png" />
                                     </image>
