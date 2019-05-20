@@ -425,18 +425,13 @@ public class DetailsWeeklyController extends TimerTask{
         sundown8.setText(simpleDateFormat1.format(sunTimes.get(6).getSet()));
 
         sunup1.setText(simpleDateFormat1.format(sunTimes.get(0).getRise()));
-        sunup2.setText(simpleDateFormat1.format(sunTimes.get(0).getRise()));
-        sunup3.setText(simpleDateFormat1.format(sunTimes.get(0).getRise()));
-        sunup4.setText(simpleDateFormat1.format(sunTimes.get(0).getRise()));
-        sunup5.setText(simpleDateFormat1.format(sunTimes.get(0).getRise()));
-        sunup6.setText(simpleDateFormat1.format(sunTimes.get(0).getRise()));
-        sunup7.setText(simpleDateFormat1.format(sunTimes.get(0).getRise()));
-        sunup8.setText(simpleDateFormat1.format(sunTimes.get(0).getRise()));
-
-
-
-
-
+        sunup2.setText(simpleDateFormat1.format(sunTimes.get(1).getRise()));
+        sunup3.setText(simpleDateFormat1.format(sunTimes.get(2).getRise()));
+        sunup4.setText(simpleDateFormat1.format(sunTimes.get(3).getRise()));
+        sunup5.setText(simpleDateFormat1.format(sunTimes.get(4).getRise()));
+        sunup6.setText(simpleDateFormat1.format(sunTimes.get(5).getRise()));
+        sunup7.setText(simpleDateFormat1.format(sunTimes.get(6).getRise()));
+        sunup8.setText(simpleDateFormat1.format(sunTimes.get(7).getRise()));
 
 
 //        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
