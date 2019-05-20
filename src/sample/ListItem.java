@@ -100,6 +100,6 @@ public class ListItem {
 
     @FXML
     private void weatherTileClicked() throws IOException {
-        // TODO: navigate to DetailPage of location
+        Main.navigateToDetails(location);
     }
 }
