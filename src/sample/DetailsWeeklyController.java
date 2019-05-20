@@ -288,10 +288,7 @@ public class DetailsWeeklyController extends TimerTask{
     public void back() throws IOException {
         //t2.cancel();
         //t2.purge();
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        Main.stage.setTitle("Back from Weekly");
-        Main.stage.setScene(new Scene(root, 479, 673));
-        stage.show();
+        Main.navigateBackToMainPage();
     }
 
     //When the button is toggled we switch to weekly
@@ -328,6 +325,9 @@ public class DetailsWeeklyController extends TimerTask{
     //Mihnea's method which initializes all fields in the top part of the screen
     public void initialize(){
         btnWeekly.setSelected(true);
+        CurrentWeather cw = OWM.getCurrentWeather(detailsPageLocation);
+        locate.setText(Main.detailsPageLocation.name);
+        List<DailyForecast> list = OWM.getWeekForecast(Main.detailsPageLocation).forecasts;
         //set up time fields
         Date date = new Date();   // given date
         Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
@@ -351,27 +351,39 @@ public class DetailsWeeklyController extends TimerTask{
         calendar.add(Calendar.DAY_OF_MONTH,3);
         time8.setText(simpleDateFormat.format(calendar.getTime()));
 
-        CurrentWeather cw = OWM.getCurrentWeather(new Location(getCity()+","+getCountry()));
-        locate.setText(getCity() + ", " + getCountry() );
-        List<DailyForecast> list = OWM.getWeekForecast(new Location(getCity()+","+getCountry())).forecasts;
-
         //sets up temps
-        double bd = (double) Conversions.toCelsius(list.get(0).temperature);
-        temp1.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(1).temperature);
-        temp2.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(2).temperature);
-        temp3.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(3).temperature);
-        temp4.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(4).temperature);
-        temp5.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(5).temperature);
-        temp6.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(6).temperature);
-        temp7.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(7).temperature);
-        temp8.setText(String.valueOf(bd) + "°");
+        double bd = Conversions.toCelsius(list.get(0).mainParameters.temperature);
+
+        double bd2 = Conversions.toCelsius(list.get(1).mainParameters.temperature);
+
+        double bd3 =Conversions.toCelsius(list.get(2).mainParameters.temperature);
+
+        double bd4 =Conversions.toCelsius(list.get(3).mainParameters.temperature);
+
+        double bd5 =Conversions.toCelsius(list.get(4).mainParameters.temperature);
+
+        double bd6 =Conversions.toCelsius(list.get(5).mainParameters.temperature);
+
+        double bd7 = Conversions.toCelsius(list.get(6).mainParameters.temperature);
+
+        double bd8 =Conversions.toCelsius(list.get(7).mainParameters.temperature);
+
+        temp1.setText(String.format("%.1f", bd) + "°");
+
+        temp2.setText(String.format("%.1f", bd2) + "°");
+
+        temp3.setText(String.format("%.1f", bd3) + "°");
+
+        temp4.setText(String.format("%.1f", bd4) + "°");
+
+        temp5.setText(String.format("%.1f", bd5) + "°");
+
+        temp6.setText(String.format("%.1f", bd6) + "°");
+
+        temp7.setText(String.format("%.1f", bd7) + "°");
+
+        temp8.setText(String.format("%.1f", bd8) + "°");
+
 
         cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
         cld2.setText(String.valueOf(list.get(1).clouds.cloudiness));
@@ -398,11 +410,6 @@ public class DetailsWeeklyController extends TimerTask{
         rain7.setText(rainOutput);
         rainOutput = list.get(7).rain != null ? (list.get(7).rain.rainAmt + "%") : "N/A";
         rain8.setText(rainOutput);
-
-
-
-
-
 
 
 //        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);

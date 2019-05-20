@@ -20,6 +20,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 
@@ -32,6 +33,8 @@ import javafx.stage.Stage;
 import utils.OWM;
 import utils.Conversions;
 import utils.scAPI;
+
+import javax.xml.crypto.dsig.SignatureMethod;
 
 import static sample.Main.*;
 
@@ -288,15 +291,21 @@ public class DetailsController extends TimerTask{
         Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
         calendar.setTime(date);   // assigns calendar to given date
         int currentHour = calendar.get(Calendar.HOUR_OF_DAY); // gets hour in 24h format
-
-        time1.setText("" + currentHour+":00");
-        time2.setText("" + (currentHour + 3) +":00");
-        time3.setText("" + (currentHour + 6)+":00");
-        time4.setText("" + (currentHour + 9)+":00");
-        time5.setText("" + (currentHour + 12)+":00");
-        time6.setText("" + (currentHour + 15)+":00");
-        time7.setText("" + (currentHour + 18)+":00");
-        time8.setText("" + (currentHour + 21)+":00");
+        time1.setText("" +calendar.get(Calendar.HOUR_OF_DAY) +":00");
+        calendar.add(Calendar.HOUR_OF_DAY,3);
+        time2.setText("" +calendar.get(Calendar.HOUR_OF_DAY)+":00");
+        calendar.add(Calendar.HOUR_OF_DAY,3);
+        time3.setText("" +calendar.get(Calendar.HOUR_OF_DAY)+":00");
+        calendar.add(Calendar.HOUR_OF_DAY,3);
+        time4.setText("" +calendar.get(Calendar.HOUR_OF_DAY)+":00");
+        calendar.add(Calendar.HOUR_OF_DAY,3);
+        time5.setText("" +calendar.get(Calendar.HOUR_OF_DAY)+":00");
+        calendar.add(Calendar.HOUR_OF_DAY,3);
+        time6.setText("" +calendar.get(Calendar.HOUR_OF_DAY)+":00");
+        calendar.add(Calendar.HOUR_OF_DAY,3);
+        time7.setText("" + calendar.get(Calendar.HOUR_OF_DAY)+":00");
+        calendar.add(Calendar.HOUR_OF_DAY,3);
+        time8.setText("" + calendar.get(Calendar.HOUR_OF_DAY)+":00");
 
 
 
