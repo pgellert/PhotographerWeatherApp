@@ -27,10 +27,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.text.SimpleDateFormat;
-import java.util.*;
 import java.util.List;
-
+import java.util.Timer;
+import java.util.TimerTask;
 import static sample.Main.*;
 
 
@@ -288,10 +287,7 @@ public class DetailsWeeklyController extends TimerTask{
     public void back() throws IOException {
         //t2.cancel();
         //t2.purge();
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        Main.stage.setTitle("Back from Weekly");
-        Main.stage.setScene(new Scene(root, 479, 673));
-        stage.show();
+        Main.navigateBackToMainPage();
     }
 
     //When the button is toggled we switch to weekly
@@ -328,35 +324,12 @@ public class DetailsWeeklyController extends TimerTask{
     //Mihnea's method which initializes all fields in the top part of the screen
     public void initialize(){
         btnWeekly.setSelected(true);
-        //set up time fields
-        Date date = new Date();   // given date
-        Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
-        calendar.setTime(date);   // assigns calendar to given date
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMM");
-        int currentMonth = calendar.get(Calendar.MONTH); // gets hour in 24h format
-        int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
-        time1.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
-        time2.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
-        time3.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
-        time4.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
-        time5.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
-        time6.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
-        time7.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,3);
-        time8.setText(simpleDateFormat.format(calendar.getTime()));
-
-        CurrentWeather cw = OWM.getCurrentWeather(new Location(getCity()+","+getCountry()));
-        locate.setText(getCity() + ", " + getCountry() );
-        List<DailyForecast> list = OWM.getWeekForecast(new Location(getCity()+","+getCountry())).forecasts;
-
-        //sets up temps
-        double bd = Conversions.toCelsius(list.get(0).temperature);
+        CurrentWeather cw = OWM.getCurrentWeather(detailsPageLocation);
+        locate.setText(Main.detailsPageLocation.name);
+        List<DailyForecast> list = OWM.getWeekForecast(Main.detailsPageLocation).forecasts;
+        System.out.println(list.size());
+        System.out.println(list.get(0).temperature);
+        double bd = (double) Conversions.toCelsius(list.get(0).temperature);
         temp1.setText(String.valueOf(bd) + "°");
         Conversions.toCelsius(list.get(1).temperature);
         temp2.setText(String.valueOf(bd) + "°");
