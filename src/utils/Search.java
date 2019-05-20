@@ -18,7 +18,7 @@ public class Search {
     private static final String api_id_google = "AIzaSyAhxpVJs2OH7oYj_LM8DR5Yyzdyl8eMGu0";
 
     //Gets coordinates for a corresponding GoogleID
-    public static Coordinate getCoords(String googleId){
+    public static Coordinate getCoords(String googleId) {
 
         //HTTPS query...
         String query = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + googleId + "&key=" + api_id_google;
@@ -40,13 +40,13 @@ public class Search {
         return new Coordinate(location.get("lng").getAsString(), location.get("lat").getAsString());
     }
 
-    public static Location getCompletedLocation(Location location){
+    public static Location getCompletedLocation(Location location) {
         Location locationToReturn = autoCompleteInput(location.name).get(0);
         return locationToReturn;
     }
 
     //Autocomplete input given to function by search bar
-    public static List<Location> autoCompleteInput(String stringLocation){
+    public static List<Location> autoCompleteInput(String stringLocation) {
         String query = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%22" + stringLocation.replace(" ", "%20") + "%22&key=" + api_id_google;
         JSONObject jobj = callQuery(query);
         System.out.println(query);
@@ -61,7 +61,7 @@ public class Search {
 
 
         //Iterate through each possible autocomplete value provided and return a corresponding Location object
-        for (JsonElement job: jsonObject.get("predictions").getAsJsonArray()){
+        for (JsonElement job : jsonObject.get("predictions").getAsJsonArray()) {
             String id = job.getAsJsonObject().get("place_id").getAsString();
             Coordinate coordinate = getCoords(id);
             autoCompResults.add(new Location(
