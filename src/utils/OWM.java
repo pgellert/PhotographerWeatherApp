@@ -180,6 +180,5 @@ public class OWM {
         //systemParameters.sunset
         //systemParameters.country
         System.out.println(hourlyForecast.calculationDate); //Date of forecast and time
-
     }
 }

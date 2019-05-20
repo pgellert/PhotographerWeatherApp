@@ -68,7 +68,6 @@ public class scAPI {
         Returns a List of SunTimes for next week at given lat/long position
         deprecated - use ForecastInformationWeek for sunrise/set times instead
      */
-    @Deprecated
     public static List<SunTimes> getSunTimesWeek(double lat, double lon) {
         SunTimes.Parameters timesWeekBuilder = SunTimes.compute();
         timesWeekBuilder = timesWeekBuilder.longitude(lon).latitude(lat);
@@ -84,10 +83,16 @@ public class scAPI {
         return sunTimesWeek;
     }
 
+    public static List<SunTimes> getSunTimesWeek(Location location) {
+        double lat = Double.parseDouble(location.coordinate.latitude);
+        double lon = Double.parseDouble(location.coordinate.longitude);
+        return getSunTimesWeek(lat, lon);
+    }
+
     public static void main(String[] args) {
-        SunPosition sunPosition = getSunPositionNow(52.2043979,0.1218338);
-        System.out.println(sunPosition.getAltitude());
-        System.out.println(sunPosition.getAzimuth());
+        List<SunTimes> sunTimes = scAPI.getSunTimesWeek(LocationFinder.getCurrentLocation());
+
+        System.out.println(sunTimes.get(0).getRise());
 
     }
 
