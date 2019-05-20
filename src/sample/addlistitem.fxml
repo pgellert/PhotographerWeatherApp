@@ -7,13 +7,13 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addLocationClicked" prefHeight="250.0" prefWidth="300.0" style="-fx-background-color: rgb(180,180,180,0.7);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addLocationClicked" prefHeight="280.0" prefWidth="360.0" style="-fx-background-color: rgb(180,180,180,0.7);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-         <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="310.0">
+         <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="280.0" prefWidth="360.0">
              <children>
                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                         <Image url="@../../../formihnnea2/pics/plus.png" />
+                         <Image url="@../noahpics/plus.png" />
                      </image>
                  </ImageView>
                  <Label text="ADD LOCATION" textFill="WHITE">
