@@ -6,6 +6,7 @@ import org.shredzone.commons.suncalc.SunTimes;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,16 +40,20 @@ public class scAPI {
     }
 
     /*
-    Returns a list of 24 SunPositions for the current day at 0:00, 1:00, etc. up to 23:00
+    Returns a list of 24 SunPositions for the next 24 hours, starting now
      */
 
     public static List<SunPosition> getSunPositionsDay(double lat, double lon) {
         SunPosition.Parameters positionBuilder = SunPosition.compute();
         positionBuilder = positionBuilder.latitude(lat).longitude(lon);
         List<SunPosition> sunPositionsDay = new ArrayList<>();
-        for(int i =0; i < 24; i++) {
+        for(int i = 0; i < 24; i++) {
             LocalDate dateToday =LocalDate.now();
-            positionBuilder.on(dateToday.getYear(), dateToday.getMonthValue(), dateToday.getDayOfMonth(), i, 0, 0 );
+            int hourNow = LocalTime.now().getHour();
+            if ((i+hourNow)>=24) {
+                dateToday =dateToday.plusDays(1);
+            }
+            positionBuilder.on(dateToday.getYear(), dateToday.getMonthValue(), dateToday.getDayOfMonth(), (i+hourNow)%24 , 0, 0 );
             sunPositionsDay.add(positionBuilder.execute());
         }
         return sunPositionsDay;

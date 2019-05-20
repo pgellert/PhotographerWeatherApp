@@ -30,6 +30,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import org.shredzone.commons.suncalc.SunPosition;
 import utils.OWM;
 import utils.Conversions;
 import utils.Search;
@@ -379,7 +380,27 @@ public class DetailsController{
         sun7.setImage(listHourly.get(6).getIcon());
         sun8.setImage(listHourly.get(7).getIcon());
 
-//        time1.setText(listHourly.get(0).dateTime.toString());
+
+        List<SunPosition> sunPositions = scAPI.getSunPositionsDay(detailsPageLocation);
+        String sunOutput;
+        sunOutput = ""+Conversions.roundDouble(sunPositions.get(0).getAltitude());
+        sunPos1.setText(sunOutput);
+        sunOutput = ""+Conversions.roundDouble(sunPositions.get(3).getAltitude());
+        sunPos2.setText(sunOutput);
+        sunOutput = ""+Conversions.roundDouble(sunPositions.get(6).getAltitude());
+        sunPos3.setText(sunOutput);
+        sunOutput = ""+Conversions.roundDouble(sunPositions.get(9).getAltitude());
+        sunPos4.setText(sunOutput);
+        sunOutput = ""+Conversions.roundDouble(sunPositions.get(12).getAltitude());
+        sunPos5.setText(sunOutput);
+        sunOutput = ""+Conversions.roundDouble(sunPositions.get(15).getAltitude());
+        sunPos6.setText(sunOutput);
+        sunOutput = ""+Conversions.roundDouble(sunPositions.get(18).getAltitude());
+        sunPos7.setText(sunOutput);
+        sunOutput = ""+Conversions.roundDouble(sunPositions.get(21).getAltitude());
+        sunPos8.setText(sunOutput);
+
+//        time1.setText(list.get(0).dateTime.toString());
 
 
 //        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
