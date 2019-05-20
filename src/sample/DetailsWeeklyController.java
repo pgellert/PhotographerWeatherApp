@@ -354,37 +354,37 @@ public class DetailsWeeklyController extends TimerTask{
         time8.setText(simpleDateFormat.format(calendar.getTime()));
 
         //sets up temps
-        double bd = Conversions.toCelsius(list.get(0).mainParameters.temperature);
+        String bd = Conversions.convertToPreferredTemperature(list.get(0).mainParameters.temperature);
 
-        double bd2 = Conversions.toCelsius(list.get(1).mainParameters.temperature);
+        String bd2 = Conversions.convertToPreferredTemperature(list.get(1).mainParameters.temperature);
 
-        double bd3 =Conversions.toCelsius(list.get(2).mainParameters.temperature);
+        String bd3 = Conversions.convertToPreferredTemperature(list.get(2).mainParameters.temperature);
 
-        double bd4 =Conversions.toCelsius(list.get(3).mainParameters.temperature);
+        String bd4 = Conversions.convertToPreferredTemperature(list.get(3).mainParameters.temperature);
 
-        double bd5 =Conversions.toCelsius(list.get(4).mainParameters.temperature);
+        String bd5 = Conversions.convertToPreferredTemperature(list.get(4).mainParameters.temperature);
 
-        double bd6 =Conversions.toCelsius(list.get(5).mainParameters.temperature);
+        String bd6 = Conversions.convertToPreferredTemperature(list.get(5).mainParameters.temperature);
 
-        double bd7 = Conversions.toCelsius(list.get(6).mainParameters.temperature);
+        String bd7 = Conversions.convertToPreferredTemperature(list.get(6).mainParameters.temperature);
 
-        double bd8 =Conversions.toCelsius(list.get(7).mainParameters.temperature);
+        String bd8 = Conversions.convertToPreferredTemperature(list.get(7).mainParameters.temperature);
 
-        temp1.setText(String.format("%.1f", bd) + "°");
+        temp1.setText(bd+ "°");
 
-        temp2.setText(String.format("%.1f", bd2) + "°");
+        temp2.setText(bd2 + "°");
 
-        temp3.setText(String.format("%.1f", bd3) + "°");
+        temp3.setText(bd3 + "°");
 
-        temp4.setText(String.format("%.1f", bd4) + "°");
+        temp4.setText(bd4 + "°");
 
-        temp5.setText(String.format("%.1f", bd5) + "°");
+        temp5.setText(bd5 + "°");
 
-        temp6.setText(String.format("%.1f", bd6) + "°");
+        temp6.setText(bd6 + "°");
 
-        temp7.setText(String.format("%.1f", bd7) + "°");
+        temp7.setText(bd7 + "°");
 
-        temp8.setText(String.format("%.1f", bd8) + "°");
+        temp8.setText(bd8 + "°");
 
 
         cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
@@ -457,7 +457,7 @@ public class DetailsWeeklyController extends TimerTask{
         System.out.println("once");
         BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
         bd = bd.round(new MathContext(3));
-        temperature.setText(String.valueOf(bd) + "°");
+        temperature.setText(bd + "°");
         visibility.setText(cw.visibility);
         sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
         sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
