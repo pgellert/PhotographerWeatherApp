@@ -80,8 +80,8 @@ public class ListItem {
         weatherIcon.setImage(weather.getIcon());
         locationValue.setText(weather.cityName);
         // TODO: change to K based on settings
-        temperatureValue.setText(Math.round(Conversions.toCelsius(weather.mainParameters.temperature)) + "°C");
-        visibilityValue.setText(weather.visibility);
+        temperatureValue.setText(Conversions.convertToPreferredTemperature(weather.mainParameters.temperature));
+        visibilityValue.setText(Conversions.convertToPreferredDistance(Double.valueOf(weather.visibility)));
         if(weather.rain == null){
             chanceOfRainValue.setText("0%");
         } else{

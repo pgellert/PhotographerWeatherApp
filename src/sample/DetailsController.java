@@ -327,22 +327,22 @@ public class DetailsController{
 
 
         List<HourlyForecast> list = OWM.getDayForecast(Main.detailsPageLocation).forecasts;
-        double bd = Conversions.toCelsius(list.get(0).mainParameters.temperature);
-        temp1.setText(String.format("%.1f", bd) + "°");
-        double bd2 = Conversions.toCelsius(list.get(1).mainParameters.temperature);
-        temp2.setText(String.format("%.1f", bd2) + "°");
-        double bd3 = Conversions.toCelsius(list.get(2).mainParameters.temperature);
-        temp3.setText(String.format("%.1f", bd3) + "°");
-        double bd4 = Conversions.toCelsius(list.get(3).mainParameters.temperature);
-        temp4.setText(String.format("%.1f", bd4) + "°");
-        double bd5 = Conversions.toCelsius(list.get(4).mainParameters.temperature);
-        temp5.setText(String.format("%.1f", bd5) + "°");
-        double bd6 = Conversions.toCelsius(list.get(5).mainParameters.temperature);
-        temp6.setText(String.format("%.1f", bd6) + "°");
-        double bd7 = Conversions.toCelsius(list.get(6).mainParameters.temperature);
-        temp7.setText(String.format("%.1f", bd7) + "°");
-        double bd8 = Conversions.toCelsius(list.get(7).mainParameters.temperature);
-        temp8.setText(String.format("%.1f", bd8) + "°");
+        String bd = Conversions.convertToPreferredTemperature(list.get(0).mainParameters.temperature);
+        temp1.setText(bd + "°");
+        String bd2 = Conversions.convertToPreferredTemperature(list.get(1).mainParameters.temperature);
+        temp2.setText(bd2 + "°");
+        String bd3 = Conversions.convertToPreferredTemperature(list.get(2).mainParameters.temperature);
+        temp3.setText(bd3 + "°");
+        String bd4 = Conversions.convertToPreferredTemperature(list.get(3).mainParameters.temperature);
+        temp4.setText(bd4 + "°");
+        String bd5 = Conversions.convertToPreferredTemperature(list.get(4).mainParameters.temperature);
+        temp5.setText(bd5 + "°");
+        String bd6 = Conversions.convertToPreferredTemperature(list.get(5).mainParameters.temperature);
+        temp6.setText(bd6 + "°");
+        String bd7 = Conversions.convertToPreferredTemperature(list.get(6).mainParameters.temperature);
+        temp7.setText(bd7 + "°");
+        String bd8 = Conversions.convertToPreferredTemperature(list.get(7).mainParameters.temperature);
+        temp8.setText(bd8 + "°");
 
         cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
         cld2.setText(String.valueOf(list.get(1).clouds.cloudiness));
@@ -400,7 +400,7 @@ public class DetailsController{
         System.out.println("refresh current weather");
         BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
         bd = bd.round(new MathContext(3));
-        temperature.setText(String.valueOf(bd) + "°");
+        temperature.setText(bd + "°");
         visibility.setText(cw.visibility);
         sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
         sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
