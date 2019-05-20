@@ -331,7 +331,7 @@ public class DetailsWeeklyController extends TimerTask{
         locate.setText(getCity() + ", " + getCountry() );
         List<DailyForecast> list = OWM.getWeekForecast(new Location(getCity()+","+getCountry())).forecasts;
         System.out.println(list.size());
-        System.out.println(list.get(0).temperature);
+        System.out.println(list.get(0).temperature.day);
         double bd = (double) Conversions.toCelsius(list.get(0).temperature.day);
         temp1.setText(String.valueOf(bd) + "°");
         Conversions.toCelsius(list.get(1).temperature.day);
