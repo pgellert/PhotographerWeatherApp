@@ -357,21 +357,39 @@ public class DetailsWeeklyController extends TimerTask{
 
         //sets up temps
         double bd = Conversions.toCelsius(list.get(0).temperature);
-        temp1.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(1).temperature);
-        temp2.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(2).temperature);
-        temp3.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(3).temperature);
-        temp4.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(4).temperature);
-        temp5.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(5).temperature);
-        temp6.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(6).temperature);
-        temp7.setText(String.valueOf(bd) + "°");
-        Conversions.toCelsius(list.get(7).temperature);
-        temp8.setText(String.valueOf(bd) + "°");
+        for(DailyForecast d: list){
+            System.out.println(d.temperature);
+        }
+        double bd2 = Conversions.toCelsius(list.get(1).temperature);
+
+        double bd3 =Conversions.toCelsius(list.get(2).temperature);
+
+        double bd4 =Conversions.toCelsius(list.get(3).temperature);
+
+        double bd5 =Conversions.toCelsius(list.get(4).temperature);
+
+        double bd6 =Conversions.toCelsius(list.get(5).temperature);
+
+        double bd7 = Conversions.toCelsius(list.get(6).temperature);
+
+        double bd8 =Conversions.toCelsius(list.get(7).temperature);
+
+        temp1.setText(String.format("%.1f", bd) + "°");
+
+        temp2.setText(String.format("%.1f", bd2) + "°");
+
+        temp3.setText(String.format("%.1f", bd3) + "°");
+
+        temp4.setText(String.format("%.1f", bd4) + "°");
+
+        temp5.setText(String.format("%.1f", bd5) + "°");
+
+        temp6.setText(String.format("%.1f", bd6) + "°");
+
+        temp7.setText(String.format("%.1f", bd7) + "°");
+
+        temp8.setText(String.format("%.1f", bd8) + "°");
+
 
         cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
         cld2.setText(String.valueOf(list.get(1).clouds.cloudiness));
