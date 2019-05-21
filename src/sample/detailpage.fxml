@@ -17,11 +17,6 @@
 
 <Pane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DetailsController">
     <children>
-        <Pane layoutX="34.0" layoutY="33.0" opacity="0.3" prefHeight="300.0" prefWidth="428.0" style="-fx-background-color: grey;">
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-        </Pane>
         <ScrollPane fx:id="horizScrollPane" hbarPolicy="ALWAYS" layoutY="336.0" pannable="true" prefHeight="337.0" prefWidth="479.0" style="-fx-background-color: transparent;" styleClass=".scroll-pane" stylesheets="@scrollPane.css" vbarPolicy="NEVER">
             <content>
                 <AnchorPane fx:id="anchorPane" prefHeight="337.0" prefWidth="700.0" style="-fx-background-color: transparent;">
