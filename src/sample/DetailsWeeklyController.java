@@ -35,7 +35,7 @@ import java.util.List;
 import static sample.Main.*;
 
 
-public class DetailsWeeklyController extends TimerTask{
+public class DetailsWeeklyController{
 
     @FXML
     private Pane container;
@@ -481,10 +481,5 @@ public class DetailsWeeklyController extends TimerTask{
         String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
         chanceOfRain.setText(rainOutput);
         sunType.setImage(cw.getIcon());
-    }
-
-    @Override
-    public void run() {
-        updateCurentWeather(cw);
     }
 }

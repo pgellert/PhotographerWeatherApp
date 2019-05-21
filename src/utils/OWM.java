@@ -130,6 +130,7 @@ public class OWM {
 
         hourlyForecast.forecasts = hourlyForecast.forecasts.subList(0,8);
 
+        /*
         while (forecastIterator.hasNext()){
             HourlyForecast hf = forecastIterator.next();
             LocalDateTime ldt = LocalDateTime.ofInstant(hf.dateTime.toInstant(), ZoneId.systemDefault());
@@ -137,6 +138,8 @@ public class OWM {
                 forecastIterator.remove();
             }
         }
+
+         */
 
         return hourlyForecast;
     }
