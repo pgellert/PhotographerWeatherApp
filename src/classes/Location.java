@@ -3,6 +3,12 @@ package classes;
 import classes.coords.Coordinate;
 import utils.Search;
 
+
+/*This is the main class we use to manage and display location data and
+* calls to the API. It stores the name of the location in short,
+* its API ID (googleId) and the coordinates of the location
+* which can be used to get the sunposition. It provides
+* getters and setters for each of the fields.*/
 public class Location {
 
     public String name;
