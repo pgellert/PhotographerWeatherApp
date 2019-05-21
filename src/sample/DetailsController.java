@@ -27,8 +27,7 @@ import java.util.List;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.shredzone.commons.suncalc.SunPosition;
 import utils.OWM;
@@ -42,8 +41,9 @@ import static sample.Main.*;
 
 public class DetailsController{
 
+    @FXML
+    private Pane container;
 
-    //set up IDs for all variables in the system
     @FXML
     private Label sunPos7;
 
@@ -413,6 +413,11 @@ public class DetailsController{
 //        String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
 //        chanceOfRain.setText(rainOutput);
         updateCurentWeather(cw);
+
+        String weatherDesc = cw.weather.get(0).description;
+
+        BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+        container.setBackground(new Background(backgroundImage));
 
 
     }

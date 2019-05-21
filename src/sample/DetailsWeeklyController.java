@@ -19,7 +19,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import org.apache.commons.lang3.Conversion;
 import org.shredzone.commons.suncalc.SunTimes;
 import utils.Conversions;
 import utils.OWM;

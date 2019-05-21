@@ -67,24 +67,11 @@ public class Mainpage implements Initializable {
 
 
 
-        /*
-        // Set background image
-        BackgroundImage myBI= null;
-
-        try {
-            myBI = new BackgroundImage(new Image(new FileInputStream("pics/background.jpg")),
-                    BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
-                    BackgroundSize.DEFAULT);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        container.setBackground(new Background(myBI));
-
-         */
 
         if (!(isAdded)) {
             UpdateAllLocations.getUwa().addLocation(Location.fromName("Cambridge, UK"));
             UpdateAllLocations.getUwa().addLocation(Location.fromName("Bristol, UK"));
+
             isAdded = true;
         }
 
@@ -98,21 +85,32 @@ public class Mainpage implements Initializable {
 
         boolean isFirst = true;
         // Populate list
-
-        // TODO: remove comment from this
-
+        observableList.clear();
         for (Location location : UpdateAllLocations.getUwa().getLocations()) {
             System.out.println(location);
             observableList.add(new WeatherTileData(location, isFirst));
             isFirst = false;
         }
 
-
-
         // If we pass a null into the list, it creates an Add New Location Tile
         observableList.add(null);
+
+
+
         listView.setItems(observableList);
         listView.setCellFactory((Callback<ListView<WeatherTileData>, ListCell<WeatherTileData>>) listView -> new ListViewCell());
+
+
+
+        // Set background image
+        Location location = UpdateAllLocations.getUwa().getLocations().get(0);
+
+        CurrentWeather weather = OWM.getCurrentWeather(location);
+        String weatherDesc = weather.weather.get(0).description;
+
+        BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+        container.setBackground(new Background(backgroundImage));
+
     }
 
 
