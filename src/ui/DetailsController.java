@@ -31,6 +31,7 @@ import static ui.Main.*;
 
 
 public class DetailsController{
+    //all ids from the fxml file
 
     @FXML
     private Pane container;
@@ -275,7 +276,10 @@ public class DetailsController{
 
     }
 
-    //When the button is toggled we switch to hourly
+    /*This is called when the hourly button is pressed.
+    It changes the scene to a weekly controller which has
+    the same upper part but displays weekly forecast in the
+    lower part*/
     public void hourlySwitch(ActionEvent event) throws IOException {
 
         Parent hourlyParent = new FXMLLoader().load(getClass().getResource("detailpage.fxml"));
@@ -288,7 +292,8 @@ public class DetailsController{
 
 
     }
-    //Mihnea's method which initializes all fields in the top part of the screen
+    /* Initializes the whole state on entering the scene from any other page.
+    * */
     public void initialize(){
         btnHourly.setSelected(true);
         System.out.println(btnHourly.isSelected());
@@ -317,7 +322,8 @@ public class DetailsController{
         time8.setText(simpleDateFormat.format(calendar.getTime())+":00");
 
 
-
+        /*
+        * Initialzie temperature fields for the hourly forecast*/
         List<HourlyForecast> listHourly = OWM.getDayForecast(Main.detailsPageLocation).forecasts;
         String bd = Conversions.convertToPreferredTemperature(listHourly.get(0).mainParameters.temperature);
         temp1.setText(bd);
@@ -336,6 +342,7 @@ public class DetailsController{
         String bd8 = Conversions.convertToPreferredTemperature(listHourly.get(7).mainParameters.temperature);
         temp8.setText(bd8);
 
+        //This sets the cloudiness in percent of the hour
         cld1.setText(String.valueOf(listHourly.get(0).clouds.cloudiness));
         cld2.setText(String.valueOf(listHourly.get(1).clouds.cloudiness));
         cld3.setText(String.valueOf(listHourly.get(2).clouds.cloudiness));
@@ -345,6 +352,8 @@ public class DetailsController{
         cld7.setText(String.valueOf(listHourly.get(6).clouds.cloudiness));
         cld8.setText(String.valueOf(listHourly.get(7).clouds.cloudiness));
 
+
+        /*Initialzie the rain amount and display it in the scene.*/
         String rainOutput = listHourly.get(0).rain != null ? (listHourly.get(0).rain.rainAmt + "%") : "N/A";
         rain1.setText(rainOutput);
         rainOutput = listHourly.get(1).rain != null ? (listHourly.get(1).rain.rainAmt + "%") : "N/A";
@@ -362,6 +371,8 @@ public class DetailsController{
         rainOutput = listHourly.get(7).rain != null ? (listHourly.get(7).rain.rainAmt + "%") : "N/A";
         rain8.setText(rainOutput);
 
+        /*This sets a different icon depending on the weather condition
+        * for each hour*/
         sun1.setImage(listHourly.get(0).getIcon());
         sun2.setImage(listHourly.get(1).getIcon());
         sun3.setImage(listHourly.get(2).getIcon());
@@ -371,7 +382,8 @@ public class DetailsController{
         sun7.setImage(listHourly.get(6).getIcon());
         sun8.setImage(listHourly.get(7).getIcon());
 
-
+        /*
+        * This sets the sun position field in degrees.*/
         List<SunPosition> sunPositions = scAPI.getSunPositionsDay(detailsPageLocation);
         String sunOutput;
         sunOutput = ""+Conversions.roundDouble(sunPositions.get(0).getAltitude());
@@ -391,17 +403,24 @@ public class DetailsController{
         sunOutput = ""+Conversions.roundDouble(sunPositions.get(21).getAltitude());
         sunPos8.setText(sunOutput);
 
+
+        /*This is a method we call to initialize the top part of the screen.*/
         updateCurentWeather(cw);
 
-        // Background
+        // Background fetched here
         String weatherDesc = cw.weather.get(0).description;
 
+
+        /* The background image is set dynamically based on the weather*/
         BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         container.setBackground(new Background(backgroundImage));
 
 
     }
 
+
+    /* This initializes all state in the upper part of the screen.
+    It uses the same logic as above. */
     private void updateCurentWeather(CurrentWeather cw){
         System.out.println("refresh current weather");
         String bd = Conversions.convertToPreferredTemperature(cw.mainParameters.temperature);
