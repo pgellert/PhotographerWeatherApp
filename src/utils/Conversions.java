@@ -7,16 +7,16 @@ public class Conversions {
     }
 
     public static String convertToPreferredTemperature(double temperatureInKelvin){
-        if(Settings.getTemperatureUnitPreference() == Settings.TemperatureUnit.Celsius){
+        if(Settings.getTemperatureUnitPreference() == Settings.TemperatureUnit.CELSIUS){
             return toCelsius(temperatureInKelvin) + "°C";
         } else {
-            return temperatureInKelvin + "K";
+            return toFahrenheit(temperatureInKelvin) + "°F";
         }
     }
 
     public static String convertToPreferredDistance(double distanceInMeter){
-        if(Settings.getDistanceUnitPreference() == Settings.DistanceUnit.Mile){
-            return toMiles(distanceInMeter) + "m";
+        if(Settings.getDistanceUnitPreference() == Settings.DistanceUnit.MILE){
+            return toMiles(distanceInMeter) + "mi";
         } else {
             return Math.round(distanceInMeter / 1000) + "km";
         }
