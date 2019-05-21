@@ -2,7 +2,6 @@ package sample;
 
 import classes.Location;
 import classes.currentweather.CurrentWeather;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
