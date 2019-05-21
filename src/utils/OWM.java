@@ -126,11 +126,13 @@ public class OWM {
 
         //Let us remove all entries we don't need because they are not valid datapoints for a week forecast.
 
-        Iterator<HourlyForecast> forecastIterator = hourlyForecast.forecasts.iterator();
+
 
         hourlyForecast.forecasts = hourlyForecast.forecasts.subList(0,8);
 
+
         /*
+        Iterator<HourlyForecast> forecastIterator = hourlyForecast.forecasts.iterator();
         while (forecastIterator.hasNext()){
             HourlyForecast hf = forecastIterator.next();
             LocalDateTime ldt = LocalDateTime.ofInstant(hf.dateTime.toInstant(), ZoneId.systemDefault());

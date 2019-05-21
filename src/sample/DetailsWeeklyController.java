@@ -296,8 +296,6 @@ public class DetailsWeeklyController{
 
     //When the button is toggled we switch to weekly
     public void weeklySwitch(ActionEvent event) throws IOException {
-        //t2.cancel();
-        //t2.purge();
         Parent weeklyParent = new FXMLLoader().load(getClass().getResource("detailpageweekly.fxml"));
         Scene weeklyScene = new Scene(weeklyParent);
 
@@ -310,21 +308,15 @@ public class DetailsWeeklyController{
 
     //When the button is toggled we switch to hourly
     public void hourlySwitch() throws IOException {
-        //t2.cancel();
-        //t2.purge();
+
         root = FXMLLoader.load(getClass().getResource("detailpage.fxml"));
         Main.stage.setTitle("Back from Weekly");
         Main.stage.setScene(new Scene(root, 479, 673));
         stage.show();
-//        Parent hourlyParent = new FXMLLoader().load(getClass().getResource("detailpage.fxml"));
-//        Scene hourlyScene = new Scene(hourlyParent);
-//
-//        //Get the stage information from the clicked
-//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        window.setScene(hourlyScene);
-//        window.show();
 
     }
+
+
     //Mihnea's method which initializes all fields in the top part of the screen
     public void initialize(){
         btnWeekly.setSelected(true);
@@ -348,11 +340,6 @@ public class DetailsWeeklyController{
         calendar.add(Calendar.DAY_OF_MONTH,1);
         time5.setText(simpleDateFormat.format(calendar.getTime()));
         calendar.add(Calendar.DAY_OF_MONTH,1);
-        time6.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,1);
-        time7.setText(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.DAY_OF_MONTH,1);
-        time8.setText(simpleDateFormat.format(calendar.getTime()));
 
         //sets up temps
         String bd = Conversions.convertToPreferredTemperature(listDaily.get(0).mainParameters.temperature);
@@ -365,11 +352,7 @@ public class DetailsWeeklyController{
 
         String bd5 = Conversions.convertToPreferredTemperature(listDaily.get(4).mainParameters.temperature);
 
-        String bd6 = Conversions.convertToPreferredTemperature(listDaily.get(5).mainParameters.temperature);
 
-        String bd7 = Conversions.convertToPreferredTemperature(listDaily.get(6).mainParameters.temperature);
-
-        String bd8 = Conversions.convertToPreferredTemperature(listDaily.get(7).mainParameters.temperature);
 
         temp1.setText(bd);
 
@@ -381,11 +364,7 @@ public class DetailsWeeklyController{
 
         temp5.setText(bd5);
 
-        temp6.setText(bd6);
 
-        temp7.setText(bd7);
-
-        temp8.setText(bd8);
 
 
         cld1.setText(String.valueOf(listDaily.get(0).clouds.cloudiness));
@@ -393,9 +372,7 @@ public class DetailsWeeklyController{
         cld3.setText(String.valueOf(listDaily.get(2).clouds.cloudiness));
         cld4.setText(String.valueOf(listDaily.get(3).clouds.cloudiness));
         cld5.setText(String.valueOf(listDaily.get(4).clouds.cloudiness));
-        cld6.setText(String.valueOf(listDaily.get(5).clouds.cloudiness));
-        cld7.setText(String.valueOf(listDaily.get(6).clouds.cloudiness));
-        cld8.setText(String.valueOf(listDaily.get(7).clouds.cloudiness));
+
 
         String rainOutput = listDaily.get(0).rain != null ? (listDaily.get(0).rain.rainAmt + "%") : "N/A";
         rain1.setText(rainOutput);
@@ -407,12 +384,7 @@ public class DetailsWeeklyController{
         rain4.setText(rainOutput);
         rainOutput = listDaily.get(4).rain != null ? (listDaily.get(4).rain.rainAmt + "%") : "N/A";
         rain5.setText(rainOutput);
-        rainOutput = listDaily.get(5).rain != null ? (listDaily.get(5).rain.rainAmt + "%") : "N/A";
-        rain6.setText(rainOutput);
-        rainOutput = listDaily.get(6).rain != null ? (listDaily.get(6).rain.rainAmt + "%") : "N/A";
-        rain7.setText(rainOutput);
-        rainOutput = listDaily.get(7).rain != null ? (listDaily.get(7).rain.rainAmt + "%") : "N/A";
-        rain8.setText(rainOutput);
+
 
 
         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("HH:mm");
@@ -422,44 +394,26 @@ public class DetailsWeeklyController{
         sundown3.setText(simpleDateFormat1.format(sunTimes.get(2).getSet()));
         sundown4.setText(simpleDateFormat1.format(sunTimes.get(3).getSet()));
         sundown5.setText(simpleDateFormat1.format(sunTimes.get(4).getSet()));
-        sundown6.setText(simpleDateFormat1.format(sunTimes.get(5).getSet()));
-        sundown7.setText(simpleDateFormat1.format(sunTimes.get(6).getSet()));
-        sundown8.setText(simpleDateFormat1.format(sunTimes.get(7).getSet()));
+
 
         sunup1.setText(simpleDateFormat1.format(sunTimes.get(0).getRise()));
         sunup2.setText(simpleDateFormat1.format(sunTimes.get(1).getRise()));
         sunup3.setText(simpleDateFormat1.format(sunTimes.get(2).getRise()));
         sunup4.setText(simpleDateFormat1.format(sunTimes.get(3).getRise()));
         sunup5.setText(simpleDateFormat1.format(sunTimes.get(4).getRise()));
-        sunup6.setText(simpleDateFormat1.format(sunTimes.get(5).getRise()));
-        sunup7.setText(simpleDateFormat1.format(sunTimes.get(6).getRise()));
-        sunup8.setText(simpleDateFormat1.format(sunTimes.get(7).getRise()));
+
 
         sun1.setImage(listDaily.get(0).getIcon());
         sun2.setImage(listDaily.get(1).getIcon());
         sun3.setImage(listDaily.get(2).getIcon());
         sun4.setImage(listDaily.get(3).getIcon());
         sun5.setImage(listDaily.get(4).getIcon());
-        sun6.setImage(listDaily.get(5).getIcon());
-        sun7.setImage(listDaily.get(6).getIcon());
-        sun8.setImage(listDaily.get(7).getIcon());
-        //sunup8.setText(simpleDateFormat1.format(sunTimes.get(7).getRise()));
 
-
-//        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
-//        bd = bd.round(new MathContext(3));
-//        temperature.setText(String.valueOf(bd) + "°");
-//        visibility.setText(cw.visibility);
-//        sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
-//        sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
-//        cloudCover.setText(new Double(cw.clouds.cloudiness).intValue() +"%");
-//        String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
-//        chanceOfRain.setText(rainOutput);
         updateCurentWeather(cw);
-        //t2 = new Timer();
 
-        //t2.scheduleAtFixedRate(this,0,1000);
 
+
+        // Background image
         String weatherDesc = cw.weather.get(0).description;
 
         BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);

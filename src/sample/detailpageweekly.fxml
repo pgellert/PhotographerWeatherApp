@@ -34,9 +34,6 @@
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="89.0" prefWidth="87.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="100.0" />
                             </columnConstraints>
                             <rowConstraints>
                                 <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
@@ -59,7 +56,7 @@
                                         <Image url="@../res/pics/rainchance.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="37.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                <ImageView fitHeight="37.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                                     <image>
                                         <Image url="@../res/pics/clouds.png" />
                                     </image>
@@ -94,21 +91,6 @@
                                         <Image url="@../res/pics/sun.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fx:id="sun6" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                                    <image>
-                                        <Image url="@../res/pics/sun.png" />
-                                    </image>
-                                </ImageView>
-                                <ImageView fx:id="sun7" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                                    <image>
-                                        <Image url="@../res/pics/sun.png" />
-                                    </image>
-                                </ImageView>
-                                <ImageView fx:id="sun8" fitHeight="46.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                                    <image>
-                                        <Image url="@../res/pics/sun.png" />
-                                    </image>
-                                </ImageView>
                                 <Label fx:id="temp1" text="20" textFill="#dddddd" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                            <font>
                               <Font name="Calibri" size="15.0" />
@@ -130,18 +112,6 @@
                               <Font name="Calibri" size="15.0" />
                            </font></Label>
                                 <Label fx:id="time5" text="28 May" textFill="#dddddd" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="time6" text="29 May" textFill="#dddddd" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="time7" text="30 May" textFill="#dddddd" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="time8" text="31 May" textFill="#dddddd" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                            <font>
                               <Font name="Calibri" size="15.0" />
                            </font></Label>
@@ -197,43 +167,7 @@
                            <font>
                               <Font name="Calibri" size="15.0" />
                            </font></Label>
-                                <Label fx:id="temp6" text="23" textFill="#dddddd" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="temp7" text="14" textFill="#dddddd" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
                                 <Label fx:id="vis5" text="78%" textFill="#dddddd" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="vis6" text="78%" textFill="#dddddd" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="temp8" text="11" textFill="#dddddd" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="vis7" text="78%" textFill="#dddddd" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="vis8" text="78%" textFill="#dddddd" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="rain6" text="76%" textFill="#dddddd" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="rain7" text="76%" textFill="#dddddd" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="rain8" text="76%" textFill="#dddddd" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <font>
                               <Font name="Calibri" size="15.0" />
                            </font></Label>
@@ -257,24 +191,12 @@
                            <font>
                               <Font name="Calibri" size="15.0" />
                            </font></Label>
-                                <Label fx:id="cld6" text="14%" textFill="#dddddd" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="cld7" text="14%" textFill="#dddddd" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="cld8" text="14%" textFill="#dddddd" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" GridPane.rowIndex="6">
+                                <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" GridPane.halignment="CENTER" GridPane.rowIndex="6">
                                     <image>
                                         <Image url="@../res/pics/sunrise.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="49.0" fitWidth="42.0" pickOnBounds="true" GridPane.rowIndex="7">
+                                <ImageView fitHeight="49.0" fitWidth="42.0" pickOnBounds="true" GridPane.halignment="CENTER" GridPane.rowIndex="7">
                                     <image>
                                         <Image url="@../res/pics/sunset.png" />
                                     </image>
@@ -311,35 +233,11 @@
                            <font>
                               <Font name="Calibri" size="15.0" />
                            </font></Label>
-                                <Label fx:id="sunup6" text="10:00" textFill="#dddddd" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
                                 <Label fx:id="sundown4" text="10:00" textFill="#dddddd" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                            <font>
                               <Font name="Calibri" size="15.0" />
                            </font></Label>
                                 <Label fx:id="sundown5" text="10:00" textFill="#dddddd" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="sundown6" text="10:00" textFill="#dddddd" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="sunup7" text="10:00" textFill="#dddddd" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="sundown7" text="10:00" textFill="#dddddd" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="sunup8" text="10:00" textFill="#dddddd" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Calibri" size="15.0" />
-                           </font></Label>
-                                <Label fx:id="sundown8" text="10:00" textFill="#dddddd" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                            <font>
                               <Font name="Calibri" size="15.0" />
                            </font></Label>

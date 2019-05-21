@@ -400,20 +400,9 @@ public class DetailsController{
         sunOutput = ""+Conversions.roundDouble(sunPositions.get(21).getAltitude());
         sunPos8.setText(sunOutput);
 
-//        time1.setText(list.get(0).dateTime.toString());
-
-
-//        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
-//        bd = bd.round(new MathContext(3));
-//        temperature.setText(String.valueOf(bd) + "°");
-//        visibility.setText(cw.visibility);
-//        sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
-//        sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
-//        cloudCover.setText(new Double(cw.clouds.cloudiness).intValue() +"%");
-//        String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
-//        chanceOfRain.setText(rainOutput);
         updateCurentWeather(cw);
 
+        // Background
         String weatherDesc = cw.weather.get(0).description;
 
         BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
