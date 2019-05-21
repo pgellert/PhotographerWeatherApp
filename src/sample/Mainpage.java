@@ -79,7 +79,7 @@ public class Mainpage implements Initializable {
         boolean isFirst = true;
 
 
-        Image image = new Image("src/res/pics/hamburger.png", btnHamburger.getWidth(), btnHamburger.getHeight(), false, true, true);
+        Image image = new Image("res/pics/hamburger.png", btnHamburger.getWidth(), btnHamburger.getHeight(), false, true, true);
         BackgroundImage bImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(btnHamburger.getWidth(), btnHamburger.getHeight(), true, true, true, false));
         btnHamburger.setMinSize(55, 37);
         btnHamburger.setMaxSize(55, 37);
