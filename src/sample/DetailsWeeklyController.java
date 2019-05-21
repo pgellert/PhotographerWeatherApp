@@ -16,8 +16,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.shredzone.commons.suncalc.SunTimes;
 import utils.Conversions;
@@ -38,6 +37,8 @@ import static sample.Main.*;
 
 public class DetailsWeeklyController extends TimerTask{
 
+    @FXML
+    private Pane container;
 
     //set up IDs for all variables in the system
     @FXML
@@ -457,6 +458,11 @@ public class DetailsWeeklyController extends TimerTask{
         //t2 = new Timer();
 
         //t2.scheduleAtFixedRate(this,0,1000);
+
+        String weatherDesc = cw.weather.get(0).description;
+
+        BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+        container.setBackground(new Background(backgroundImage));
 
     }
 

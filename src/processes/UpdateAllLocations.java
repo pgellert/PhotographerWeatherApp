@@ -5,6 +5,7 @@ import classes.currentweather.CurrentWeather;
 import classes.forecast.ForecastInformationDay;
 import classes.forecast.ForecastInformationWeek;
 import org.shredzone.commons.suncalc.SunPosition;
+import utils.LocationFinder;
 import utils.OWM;
 import utils.Search;
 import utils.scAPI;
@@ -63,6 +64,8 @@ public class UpdateAllLocations {
 
 
     private UpdateAllLocations(){
+        addLocation(LocationFinder.getCurrentLocation());
+
         executor = Executors.newScheduledThreadPool(3);
         executor.schedule(updateAllDaily, 10L, TimeUnit.MINUTES);
         executor.schedule(updateAllHourly, 10L, TimeUnit.MINUTES);

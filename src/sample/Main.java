@@ -68,18 +68,6 @@ public class Main extends Application {
 
         this.stage = primaryStage;
         stage.setTitle("Weather App for Photographers");
-        loadMain();
-        //loadMainTester(); //this is for the details page ui designers
-    }
-
-    private void loadMainTester() throws IOException {
-        // TODO: should be removed at the end
-        Parent mainTesterPage = FXMLLoader.load(loaderClass.getResource("main.fxml"));
-        stage.setScene(new Scene(mainTesterPage, PAGE_WIDTH, PAGE_HEIGHT));
-        stage.show();
-    }
-
-    private void loadMain() throws IOException {
         Parent mainPage = FXMLLoader.load(loaderClass.getResource("mainpage.fxml"));
         stage.setScene(new Scene(mainPage, PAGE_WIDTH, PAGE_HEIGHT));
         stage.show();
