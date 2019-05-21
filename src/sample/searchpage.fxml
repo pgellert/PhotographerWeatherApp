@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -17,6 +18,13 @@
          </font></Label>
       <Label layoutX="50.0" layoutY="127.0" text="Results:" AnchorPane.bottomAnchor="530.0" AnchorPane.leftAnchor="50.0" />
       <Button layoutX="364.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: rgb(180,180,180,0.7); -fx-background-radius: 100;" text="Search" textFill="WHITE" AnchorPane.rightAnchor="50.0" />
-      <Button layoutY="1.0" mnemonicParsing="false" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" onMouseClicked="#backButtonClicked"/>
+      <Button layoutY="1.0" mnemonicParsing="false" onMouseClicked="#backButtonClicked" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/pics/back.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>

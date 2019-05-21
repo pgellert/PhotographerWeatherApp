@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -7,7 +8,14 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Settingspage">
    <children>
-      <Button fx:id="backButtonSettings" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button fx:id="backButtonSettings" mnemonicParsing="false" onAction="#back" text="Back">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/pics/back.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <Label fx:id="settingsTitle" layoutX="65.0" layoutY="59.0" text="SETTINGS">
          <font>
             <Font size="24.0" />
