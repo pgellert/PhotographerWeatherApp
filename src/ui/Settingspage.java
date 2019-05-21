@@ -28,24 +28,27 @@ public class Settingspage implements Initializable {
         Main.navigateBackToMainPage();
     }
 
+    // Temperature unit toggle button
     public void btnCelsius() {
         Settings.setTemperatureUnitPreference(Settings.TemperatureUnit.CELSIUS);
     }
-
     public void btnFahrenheit() {
         Settings.setTemperatureUnitPreference(Settings.TemperatureUnit.FAHRENHEIT);
     }
 
+    // Distance unit toggle button
     public void btnKm() {
         Settings.setDistanceUnitPreference(Settings.DistanceUnit.METER);
     }
-
     public void btnMiles() {
         Settings.setDistanceUnitPreference(Settings.DistanceUnit.MILE);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        // Read in current preferences to show on the page
+
         if(Settings.getTemperatureUnitPreference() == Settings.TemperatureUnit.CELSIUS){
             tempCelsius.setSelected(true);
         } else {

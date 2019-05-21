@@ -59,6 +59,8 @@ public class ListItem {
         }
     }
 
+
+    // Used for updating the list item on the MainPage (see ListViewCell for usage)
     public void setInfo(Location location, boolean isCurrentLocation)
     {
         this.location = location;
@@ -85,12 +87,16 @@ public class ListItem {
         return container;
     }
 
+
+    // When remove button is clicked on the tile, remove the button and reload the page
     @FXML
     private void removeButtonClicked() throws IOException {
         UpdateAllLocations.getUwa().removeLocation(location);
         Main.navigateBackToMainPage();
     }
 
+
+    // If we click on a weather tile, show the details of it
     @FXML
     private void weatherTileClicked() throws IOException {
         Main.navigateToDetails(location);
