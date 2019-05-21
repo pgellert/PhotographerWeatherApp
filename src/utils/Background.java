@@ -1,7 +1,7 @@
 package utils;
 
 import javafx.scene.image.Image;
-import sample.Main;
+import ui.Main;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

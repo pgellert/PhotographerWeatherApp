@@ -1,15 +1,11 @@
-package sample;
+package ui;
 
 import classes.Location;
-import classes.currentweather.CurrentWeather;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import org.shredzone.commons.suncalc.SunPosition;
 import processes.UpdateAllLocations;
-import utils.OWM;
-import utils.scAPI;
 
 import java.io.IOException;
 

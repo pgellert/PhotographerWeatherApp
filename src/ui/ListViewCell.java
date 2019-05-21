@@ -1,8 +1,6 @@
-package sample;
+package ui;
 
-import classes.Location;
 import javafx.scene.control.ListCell;
-import javafx.util.Pair;
 
 public class ListViewCell extends ListCell<WeatherTileData>
 {

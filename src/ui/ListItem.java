@@ -1,27 +1,19 @@
-package sample;
+package ui;
 
 import classes.Location;
 import classes.currentweather.CurrentWeather;
-import classes.forecast.ForecastInformationDay;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import org.shredzone.commons.suncalc.SunPosition;
 import processes.UpdateAllLocations;
 import utils.Conversions;
 import utils.OWM;
 import utils.scAPI;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ListItem {

@@ -1,4 +1,4 @@
-package sample;
+package ui;
 
 import classes.Location;
 import classes.currentweather.CurrentWeather;
@@ -6,27 +6,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 import javafx.util.Callback;
-import javafx.util.Pair;
 import processes.UpdateAllLocations;
 import utils.OWM;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashSet;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 
 public class Mainpage implements Initializable {

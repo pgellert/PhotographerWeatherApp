@@ -1,10 +1,7 @@
-package sample;
+package ui;
 
-import classes.Location;
 import classes.currentweather.CurrentWeather;
-import classes.forecast.ForecastInformationDay;
 import classes.forecast.hourly.HourlyForecast;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,27 +12,21 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleButton;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.MathContext;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.shredzone.commons.suncalc.SunPosition;
 import utils.OWM;
 import utils.Conversions;
-import utils.Search;
 import utils.scAPI;
 
-import static sample.Main.*;
+import static ui.Main.*;
 
 
 
