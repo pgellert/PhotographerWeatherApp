@@ -67,8 +67,8 @@ public class UpdateAllLocations {
 
 
     private UpdateAllLocations(){
-        loadLocations();
         addLocation(LocationFinder.getCurrentLocation());
+        loadLocations();
 
         executor = Executors.newScheduledThreadPool(3);
         executor.schedule(updateAllDaily, 10L, TimeUnit.MINUTES);
