@@ -116,7 +116,6 @@ public class Mainpage implements Initializable {
 
         BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         container.setBackground(new Background(backgroundImage));
-
     }
 
 
