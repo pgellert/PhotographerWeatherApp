@@ -8,6 +8,10 @@ public class ListViewCell extends ListCell<WeatherTileData>
     public void updateItem(WeatherTileData data, boolean empty)
     {
         super.updateItem(data, empty);
+
+        // If data is null show an AddListItem tile
+        // Otherwise load the location tile into a ListItem
+
         if(data != null)
         {
             ListItem listItem = new ListItem();

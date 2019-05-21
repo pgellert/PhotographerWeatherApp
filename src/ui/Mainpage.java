@@ -30,18 +30,18 @@ public class Mainpage implements Initializable {
     @FXML
     private MenuButton btnHamburger;
 
-    //private static boolean isAdded;
-
     @FXML
     private ListView listView;
 
     public static ObservableList observableList = FXCollections.observableArrayList();
 
+    // if we click on Settings menu item, navigate to SettingsPage
     @FXML
     private void navigateToSettings(ActionEvent event) throws IOException {
         Main.navigateToSettings();
     }
 
+    // if we click on Tips menu item, navigate to TipsPage
     @FXML
     private void navigateToTips(ActionEvent event) throws IOException {
         Main.navigateToTips();
@@ -50,16 +50,7 @@ public class Mainpage implements Initializable {
     @Override
     public void initialize(URL locationUrl, ResourceBundle resources) {
 
-        /*
-        if (!(isAdded)) {
-            UpdateAllLocations.getUwa().addLocation(Location.fromName("Cambridge, UK"));
-            UpdateAllLocations.getUwa().addLocation(Location.fromName("Bristol, UK"));
-
-            isAdded = true;
-        }
-
-        */
-
+        // Set settings image to hamburger.png
 
         Image image = new Image("res/pics/hamburger.png", btnHamburger.getWidth(), btnHamburger.getHeight(), false, true, true);
         BackgroundImage bImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(btnHamburger.getWidth(), btnHamburger.getHeight(), true, true, true, false));
@@ -73,8 +64,9 @@ public class Mainpage implements Initializable {
 
 
         // Populate list
+
         observableList.clear();
-        boolean isFirst = true;
+        boolean isFirst = true;     // The first item is the current location, and it should show a logo to signal that
         for (Location location : UpdateAllLocations.getUwa().getLocations()) {
             System.out.println(location);
             observableList.add(new WeatherTileData(location, isFirst));
@@ -84,10 +76,9 @@ public class Mainpage implements Initializable {
         // If we pass a null into the list, it creates an Add New Location Tile
         observableList.add(null);
 
-
-
         listView.setItems(observableList);
         listView.setCellFactory((Callback<ListView<WeatherTileData>, ListCell<WeatherTileData>>) listView -> new ListViewCell());
+
 
 
 
