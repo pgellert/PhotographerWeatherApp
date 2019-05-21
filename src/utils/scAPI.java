@@ -92,7 +92,7 @@ public class scAPI {
         timesWeekBuilder = timesWeekBuilder.longitude(lon).latitude(lat);
         List<SunTimes> sunTimesWeek = new ArrayList<>();
         LocalDate day = LocalDate.now();
-        for(int i = 0; i < 7; i++) {
+        for(int i = 0; i < 8; i++) {
             timesWeekBuilder.on(Date.valueOf(day));
             SunTimes dayTimes = timesWeekBuilder.execute();
             sunTimesWeek.add(dayTimes);
