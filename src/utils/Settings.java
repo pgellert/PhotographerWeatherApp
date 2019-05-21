@@ -10,7 +10,7 @@ public class Settings {
     public enum TemperatureUnit {CELSIUS, KELVIN, FAHRENHEIT}
     public enum DistanceUnit {METER, MILE}
 
-    static TemperatureUnit getTemperatureUnitPreference() {
+    public static TemperatureUnit getTemperatureUnitPreference() {
         Preferences pref = Preferences.userNodeForPackage(Settings.class);
         return pref.getBoolean(IS_CELSIUS_KEY, true) ? TemperatureUnit.CELSIUS : TemperatureUnit.FAHRENHEIT;
     }
@@ -21,7 +21,7 @@ public class Settings {
     }
 
 
-    static DistanceUnit getDistanceUnitPreference() {
+    public static DistanceUnit getDistanceUnitPreference() {
         Preferences pref = Preferences.userNodeForPackage(Settings.class);
         return pref.getBoolean(IS_METER_KEY, true) ? DistanceUnit.METER : DistanceUnit.MILE;
     }
