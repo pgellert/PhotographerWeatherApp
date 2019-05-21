@@ -12,7 +12,7 @@
          <StackPane.margin>
             <Insets left="20.0" right="20.0" top="53.0" />
          </StackPane.margin></ListView>
-        <MenuButton fx:id="btnHamburger" ellipsisString="" mnemonicParsing="false" opacity="0.2" prefHeight="20.0" prefWidth="20.0" styleClass=".menu-button" stylesheets="@menuButton.css" StackPane.alignment="TOP_RIGHT">
+        <MenuButton fx:id="btnHamburger" ellipsisString="" mnemonicParsing="false" opacity="0.7" prefHeight="20.0" prefWidth="20.0" styleClass=".menu-button" stylesheets="@menuButton.css" StackPane.alignment="TOP_RIGHT">
             <items>
                 <MenuItem mnemonicParsing="false" onAction="#navigateToSettings" text="Settings" />
                 <MenuItem mnemonicParsing="false" onAction="#navigateToTips" text="Tips" />
