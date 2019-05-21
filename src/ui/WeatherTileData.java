@@ -2,6 +2,10 @@ package ui;
 
 import classes.Location;
 
+/*
+    This class stores the data that we need to populate a ListItem (weather tile) on the MainPage
+ */
+
 public class WeatherTileData {
     private Location location;
     private boolean isCurrentLocation;

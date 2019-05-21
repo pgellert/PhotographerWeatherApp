@@ -3,6 +3,10 @@ package classes;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+
+
+/*This encapsulates all relevant information that we use to display
+* forecast.*/
 @Data
 public class MainParameters {
     @SerializedName("temp")

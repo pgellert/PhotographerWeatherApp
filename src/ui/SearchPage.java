@@ -21,14 +21,17 @@ public class SearchPage {
     @FXML
     private ListView suggestionsList;
 
-
+    // Suggestion list loaded into the ListView
     ObservableList observableList = FXCollections.observableArrayList();
 
+    // If back button clicked, navigate back to MainPage
     @FXML
     private void backButtonClicked() throws IOException {
         Main.navigateBackToMainPage();
     }
 
+
+    // If search button is clicked, show location suggestions
     @FXML
     private void searchButtonClicked() throws IOException {
         List<Location> suggestions = Search.autoCompleteInput(locationTextField.getText());
@@ -37,12 +40,12 @@ public class SearchPage {
         observableList.addAll(suggestions);
         suggestionsList.setItems(observableList);
         suggestionsList.setCellFactory((Callback<javafx.scene.control.ListView<Location>, ListCell<Location>>) listView -> new SettingsSuggestionCell());
-        //suggestionsList.setCellFactory(());
     }
 
 
 
 
+    // Custom ListItem for suggestion list
     private class SettingsSuggestionCell extends ListCell<Location> {
         @Override
         public void updateItem(Location data, boolean empty)

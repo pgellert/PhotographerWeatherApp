@@ -19,31 +19,34 @@ public class SuggestionsListItem {
 
     private Location location;
 
-        public SuggestionsListItem()
+    public SuggestionsListItem()
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("suggestionslistitem.fxml"));
+        fxmlLoader.setController(this);
+        try
         {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("suggestionslistitem.fxml"));
-            fxmlLoader.setController(this);
-            try
-            {
-                fxmlLoader.load();
-            }
-            catch (IOException e)
-            {
-                throw new RuntimeException(e);
-            }
+            fxmlLoader.load();
         }
-
-        public void setInfo(Location location)
+        catch (IOException e)
         {
-            this.location = location;
-            label.setText(location.name);
+            throw new RuntimeException(e);
         }
+    }
 
-        public Pane getContainer()
+    public void setInfo(Location location)
+    {
+        this.location = location;
+        label.setText(location.name);
+    }
+
+
+    // Used for custom ListItem
+    public Pane getContainer()
         {
             return container;
         }
 
+    // If we click on a search suggestion, add it to the list of locations, and move to the DetailsPage of the location
     @FXML
     private void locationItemClicked() throws IOException {
         UpdateAllLocations.getUwa().addLocation(location);

@@ -7,6 +7,9 @@ import classes.gson.SecondsDateTypeAdapter;
 
 import java.util.Date;
 
+
+/*This is information regarding the system and metadata that we use
+* to access the API*/
 @Data
 public class SystemParameters {
     @SerializedName("type")

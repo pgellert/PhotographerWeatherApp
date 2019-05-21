@@ -26,12 +26,15 @@ public class AddListItem {
         }
     }
 
+
+    // Used for loading the item into the list (see ListViewCell)
     public Pane getContainer()
     {
         return container;
     }
 
 
+    // When the add location tile is clicked, move to the SearchPage
     @FXML
     public void addLocationClicked(MouseEvent arg0) throws IOException {
         Main.navigateToSearchPage();

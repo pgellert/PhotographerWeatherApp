@@ -3,6 +3,9 @@ package classes;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+
+
+/*Encapsulates a separate API and weather information*/
 @Data
 public class Weather {
     /**
