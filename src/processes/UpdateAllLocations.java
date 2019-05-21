@@ -10,6 +10,7 @@ import utils.OWM;
 import utils.Search;
 import utils.scAPI;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +20,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class UpdateAllLocations {
+    private static final String LOCATION_LIST_FILE_NAME = "location_list.txt";
+
     private Map<Location, ForecastInformationWeek> dailyForecasts = new HashMap<>();
     private Map<Location, ForecastInformationDay> hourlyForecasts = new HashMap<>();
     private Map<Location, CurrentWeather> allCurrentWeather = new HashMap<>();
@@ -65,6 +68,7 @@ public class UpdateAllLocations {
 
     private UpdateAllLocations(){
         addLocation(LocationFinder.getCurrentLocation());
+        loadLocations();
 
         executor = Executors.newScheduledThreadPool(3);
         executor.schedule(updateAllDaily, 10L, TimeUnit.MINUTES);
@@ -86,6 +90,8 @@ public class UpdateAllLocations {
         hourlyForecasts.put(location, OWM.getDayForecast(location));
         allCurrentWeather.put(location, OWM.getCurrentWeather(location));
         currentSunPositions.put(location, scAPI.getSunPositionNow(location));
+
+        saveLocations();
     }
 
     public void removeLocation(Location location){
@@ -94,6 +100,8 @@ public class UpdateAllLocations {
         hourlyForecasts.remove(location);
         allCurrentWeather.remove(location);
         currentSunPositions.remove(location);
+
+        saveLocations();
     }
 
     public List<Location> getLocations() {
@@ -148,6 +156,29 @@ public class UpdateAllLocations {
             uwa = new UpdateAllLocations();
         }
         return uwa;
+    }
+
+
+    private void saveLocations(){
+        try (PrintWriter pw = new PrintWriter(new FileOutputStream(LOCATION_LIST_FILE_NAME))){
+            pw.flush();
+            for (Location location : locations.subList(1,locations.size()))
+                pw.println(location.name);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void loadLocations(){
+        try (BufferedReader file = new BufferedReader(new FileReader (LOCATION_LIST_FILE_NAME))){
+            String line;
+            while ((line = file.readLine()) != null){
+                locations.add(Location.fromName(line));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

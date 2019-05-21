@@ -96,7 +96,7 @@ public class ListItem {
     @FXML
     private void removeButtonClicked() throws IOException {
         UpdateAllLocations.getUwa().removeLocation(location);
-        Mainpage.observableList.remove(location);
+        Main.navigateBackToMainPage();
     }
 
     @FXML

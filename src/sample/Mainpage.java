@@ -2,7 +2,6 @@ package sample;
 
 import classes.Location;
 import classes.currentweather.CurrentWeather;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -41,7 +40,7 @@ public class Mainpage implements Initializable {
     @FXML
     private MenuButton btnHamburger;
 
-    private static boolean isAdded;
+    //private static boolean isAdded;
 
     @FXML
     private ListView listView;
@@ -60,15 +59,8 @@ public class Mainpage implements Initializable {
 
     @Override
     public void initialize(URL locationUrl, ResourceBundle resources) {
+
         /*
-        TODO:
-         - load list of locations -> populate weather data list
-         - load background image for current location's weather data
-         */
-
-
-
-
         if (!(isAdded)) {
             UpdateAllLocations.getUwa().addLocation(Location.fromName("Cambridge, UK"));
             UpdateAllLocations.getUwa().addLocation(Location.fromName("Bristol, UK"));
@@ -76,7 +68,7 @@ public class Mainpage implements Initializable {
             isAdded = true;
         }
 
-        boolean isFirst = true;
+        */
 
 
         Image image = new Image("res/pics/hamburger.png", btnHamburger.getWidth(), btnHamburger.getHeight(), false, true, true);
@@ -92,6 +84,7 @@ public class Mainpage implements Initializable {
 
         // Populate list
         observableList.clear();
+        boolean isFirst = true;
         for (Location location : UpdateAllLocations.getUwa().getLocations()) {
             System.out.println(location);
             observableList.add(new WeatherTileData(location, isFirst));
@@ -116,7 +109,6 @@ public class Mainpage implements Initializable {
 
         BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         container.setBackground(new Background(backgroundImage));
-
     }
 
 
