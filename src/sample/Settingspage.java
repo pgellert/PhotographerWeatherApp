@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import utils.Settings;
 
 import java.io.IOException;
@@ -24,6 +26,10 @@ public class Settingspage implements Initializable {
 
     @FXML
     private ToggleButton distMiles;
+
+    @FXML
+    private Button backButtonSettings;
+
 
     public void back() throws IOException {
         Main.navigateBackToMainPage();
@@ -58,5 +64,14 @@ public class Settingspage implements Initializable {
         } else {
             distMiles.setSelected(true);
         }
+
+        Image image = new Image("res/pics/back.png", backButtonSettings.getWidth(), backButtonSettings.getHeight(), false, true, true);
+        BackgroundImage bImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(backButtonSettings.getWidth(), backButtonSettings.getHeight(), true, true, true, false));
+        backButtonSettings.setMinSize(55, 37);
+        backButtonSettings.setMaxSize(55, 37);
+
+        Background backGround = new Background(bImage);
+        backButtonSettings.setBackground(backGround);
+
     }
 }

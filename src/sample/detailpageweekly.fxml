@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -21,6 +22,11 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DetailsWeeklyController">
     <children>
+      <Pane layoutX="37.0" layoutY="28.0" opacity="0.3" prefHeight="300.0" prefWidth="428.0" style="-fx-background-color: grey;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
         <ScrollPane fx:id="horizScrollPane" hbarPolicy="ALWAYS" layoutY="336.0" pannable="true" prefHeight="337.0" prefWidth="479.0" vbarPolicy="NEVER">
             <content>
                 <AnchorPane fx:id="anchorPane" prefHeight="337.0" prefWidth="700.0">
@@ -385,9 +391,9 @@
                 </GridPane>
             </children>
         </GridPane>
-        <Button mnemonicParsing="false" onAction="#back" text="Back">
+        <Button fx:id="backButton" mnemonicParsing="false" onAction="#back">
             <graphic>
-                <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="1.0" pickOnBounds="true" preserveRatio="true" />
             </graphic>
         </Button>
         <ToggleButton fx:id="btnWeekly" layoutX="234.0" layoutY="290.0" mnemonicParsing="false" text="Weekly" toggleGroup="$timeGroup" />

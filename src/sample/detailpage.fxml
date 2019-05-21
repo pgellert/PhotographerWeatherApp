@@ -20,6 +20,11 @@
 
 <Pane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DetailsController">
     <children>
+      <Pane layoutX="34.0" layoutY="33.0" opacity="0.3" prefHeight="300.0" prefWidth="428.0" style="-fx-background-color: grey;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
         <ScrollPane fx:id="horizScrollPane" hbarPolicy="ALWAYS" layoutY="336.0" pannable="true" prefHeight="337.0" prefWidth="479.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
             <content>
                 <AnchorPane fx:id="anchorPane" prefHeight="337.0" prefWidth="700.0" style="-fx-background-color: transparent;">
@@ -165,7 +170,7 @@
                 </AnchorPane>
             </content>
         </ScrollPane>
-        <ToggleButton fx:id="btnHourly" layoutX="176.0" layoutY="290.0" mnemonicParsing="false" onAction="#hourlySwitch" text="Hourly">
+        <ToggleButton fx:id="btnHourly" layoutX="172.0" layoutY="290.0" mnemonicParsing="false" onAction="#hourlySwitch" text="Hourly">
             <toggleGroup>
                 <ToggleGroup fx:id="timeGroup" />
             </toggleGroup></ToggleButton>
@@ -370,11 +375,11 @@
                 </GridPane>
             </children>
         </GridPane>
-        <Button mnemonicParsing="false" onAction="#back" text="Back">
+        <Button fx:id="backButtonDetailsH" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="56.0">
             <graphic>
-                <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" />
             </graphic>
         </Button>
-        <ToggleButton fx:id="btnWeekly" layoutX="234.0" layoutY="290.0" mnemonicParsing="false" onAction="#weeklySwitch" text="Weekly" toggleGroup="$timeGroup" />
+        <ToggleButton fx:id="btnWeekly" layoutX="249.0" layoutY="290.0" mnemonicParsing="false" onAction="#weeklySwitch" text="Weekly" toggleGroup="$timeGroup" />
     </children>
 </Pane>
