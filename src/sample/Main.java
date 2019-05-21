@@ -13,8 +13,8 @@ import java.io.IOException;
 public class Main extends Application {
     public static Stage stage;
 
-    private static final int PAGE_WIDTH = 479;
-    private static final int PAGE_HEIGHT = 673;
+    public static final int PAGE_WIDTH = 479;
+    public static final int PAGE_HEIGHT = 673;
 
     public static Location detailsPageLocation = Location.fromName("Cambridge,UK");
     private static Class<? extends Main> loaderClass;
