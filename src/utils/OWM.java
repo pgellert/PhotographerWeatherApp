@@ -15,6 +15,7 @@ import org.json.simple.JSONObject;
 import classes.*;
 
 import static java.time.temporal.ChronoUnit.DAYS;
+import static java.time.temporal.ChronoUnit.HOURS;
 import static utils.QueryParser.callQuery;
 
 
@@ -79,11 +80,17 @@ public class OWM {
 
         Iterator<DailyForecast> forecastIterator = dailyForecast.forecasts.iterator();
 
+        DailyForecast df = forecastIterator.next();
+        LocalDateTime lastDay = LocalDateTime.ofInstant(df.dateTime.toInstant(), ZoneId.systemDefault());
+
         while (forecastIterator.hasNext()){
-            DailyForecast df = forecastIterator.next();
+            df = forecastIterator.next();
             LocalDateTime ldt = LocalDateTime.ofInstant(df.dateTime.toInstant(), ZoneId.systemDefault());
-            if (DAYS.between(LocalDateTime.now(), ldt) >= 1){
+
+            if (DAYS.between(lastDay, ldt) < 1){
                 forecastIterator.remove();
+            } else {
+                lastDay = ldt;
             }
         }
 
@@ -120,6 +127,8 @@ public class OWM {
         //Let us remove all entries we don't need because they are not valid datapoints for a week forecast.
 
         Iterator<HourlyForecast> forecastIterator = hourlyForecast.forecasts.iterator();
+
+        hourlyForecast.forecasts = hourlyForecast.forecasts.subList(0,8);
 
         while (forecastIterator.hasNext()){
             HourlyForecast hf = forecastIterator.next();

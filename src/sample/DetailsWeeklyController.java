@@ -480,7 +480,6 @@ public class DetailsWeeklyController extends TimerTask{
         String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
         chanceOfRain.setText(rainOutput);
         sunType.setImage(cw.getIcon());
-
     }
 
     @Override
