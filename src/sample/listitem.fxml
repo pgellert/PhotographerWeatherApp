@@ -45,7 +45,7 @@
                           </Label>
                           <ImageView fx:id="weatherIcon" fitHeight="60.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                               <image>
-                                  <Image url="@../noahpics/sun.png" />
+                                  <Image url="@../res/pics/sun.png" />
                               </image>
                               <GridPane.margin>
                                   <Insets bottom="10.0" />
@@ -68,7 +68,7 @@
                       <children>
                           <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
                               <image>
-                                  <Image url="@../noahpics/visibility.png" />
+                                  <Image url="@../res/pics/visibility.png" />
                               </image>
                            <GridPane.margin>
                               <Insets left="10.0" />
@@ -107,7 +107,7 @@
                       <children>
                           <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
                               <image>
-                                  <Image url="@../noahpics/rainchance.png" />
+                                  <Image url="@../res/pics/rainchance.png" />
                               </image>
                            <GridPane.margin>
                               <Insets left="10.0" />
@@ -146,7 +146,7 @@
                       <children>
                           <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
                               <image>
-                                  <Image url="@../noahpics/sunny.png" />
+                                  <Image url="@../res/pics/sunny.png" />
                               </image>
                            <GridPane.margin>
                               <Insets left="10.0" />
@@ -185,7 +185,7 @@
                       <children>
                           <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
                               <image>
-                                  <Image url="@../noahpics/clouds.png" />
+                                  <Image url="@../res/pics/clouds.png" />
                               </image>
                            <GridPane.margin>
                               <Insets left="10.0" />
@@ -219,7 +219,7 @@
                      <graphic>
                         <ImageView fx:id="currentLocationIcon" fitHeight="50.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../noahpics/location.png" />
+                              <Image url="@../res/pics/location.png" />
                            </image>
                         </ImageView>
                      </graphic>

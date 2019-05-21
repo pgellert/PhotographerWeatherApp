@@ -2,6 +2,7 @@ package sample;
 
 import classes.Location;
 import classes.currentweather.CurrentWeather;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,13 +39,23 @@ public class Mainpage implements Initializable {
     private MenuButton menu;
 
     @FXML
+    private MenuButton btnHamburger;
+
+    private static boolean isAdded;
+
+    @FXML
     private ListView listView;
 
-    ObservableList observableList = FXCollections.observableArrayList();
+    public static ObservableList observableList = FXCollections.observableArrayList();
 
     @FXML
     private void navigateToSettings(ActionEvent event) throws IOException {
         Main.navigateToSettings();
+    }
+
+    @FXML
+    private void navigateToTips(ActionEvent event) throws IOException {
+        Main.navigateToTips();
     }
 
     @Override
@@ -57,43 +68,55 @@ public class Mainpage implements Initializable {
 
 
 
-        /*
-        // Set background image
-        BackgroundImage myBI= null;
 
-        try {
-            myBI = new BackgroundImage(new Image(new FileInputStream("pics/background.jpg")),
-                    BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
-                    BackgroundSize.DEFAULT);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        if (!(isAdded)) {
+            UpdateAllLocations.getUwa().addLocation(Location.fromName("Cambridge, UK"));
+            UpdateAllLocations.getUwa().addLocation(Location.fromName("Bristol, UK"));
+
+            isAdded = true;
         }
-        container.setBackground(new Background(myBI));
-
-         */
-
-
-        UpdateAllLocations.getUwa().addLocation(Location.fromName("Cambridge, UK"));
-        UpdateAllLocations.getUwa().addLocation(Location.fromName("Bristol, UK"));
-
 
         boolean isFirst = true;
+
+
+        Image image = new Image("res/pics/hamburger.png", btnHamburger.getWidth(), btnHamburger.getHeight(), false, true, true);
+        BackgroundImage bImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(btnHamburger.getWidth(), btnHamburger.getHeight(), true, true, true, false));
+        btnHamburger.setMinSize(55, 37);
+        btnHamburger.setMaxSize(55, 37);
+
+        Background backGround = new Background(bImage);
+        btnHamburger.setBackground(backGround);
+
+
+
+
         // Populate list
-
-        // TODO: remove comment from this
-
+        observableList.clear();
         for (Location location : UpdateAllLocations.getUwa().getLocations()) {
             System.out.println(location);
             observableList.add(new WeatherTileData(location, isFirst));
             isFirst = false;
         }
 
-
-
         // If we pass a null into the list, it creates an Add New Location Tile
         observableList.add(null);
+
+
+
         listView.setItems(observableList);
         listView.setCellFactory((Callback<ListView<WeatherTileData>, ListCell<WeatherTileData>>) listView -> new ListViewCell());
+
+
+
+        // Set background image
+        Location location = UpdateAllLocations.getUwa().getLocations().get(0);
+
+        CurrentWeather weather = OWM.getCurrentWeather(location);
+        String weatherDesc = weather.weather.get(0).description;
+
+        BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+        container.setBackground(new Background(backgroundImage));
+
     }
 
 

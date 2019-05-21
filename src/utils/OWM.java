@@ -49,12 +49,16 @@ public class OWM {
     public static ForecastInformationWeek getWeekForecast(Location location) {
 
         String query;
+
         if (location == null){
             System.out.println("Null location");
             return null;
         }
 
-        if (location.owmId != null){
+        if ((location.coordinate != null) && (location.coordinate.longitude != null & location.coordinate.latitude != null))
+        {
+            query = "http://api.openweathermap.org/data/2.5/forecast?lon=" + location.coordinate.longitude+ "&lat=" + location.coordinate.latitude + "&APPID=" + api_id_owm;
+        } else if (location.owmId != null){
             query = "http://api.openweathermap.org/data/2.5/forecast?id=" + location.owmId+ "&APPID=" + api_id_owm;
         } else if (location.name != null){
             query = "http://api.openweathermap.org/data/2.5/forecast?q=" + location.name.replace(" ", "%20") + "&APPID=" + api_id_owm;
@@ -94,7 +98,9 @@ public class OWM {
             return null;
         }
 
-        if (location.owmId != null){
+        if ((location.coordinate != null) && (location.coordinate.longitude != null & location.coordinate.latitude != null)){
+            query = "http://api.openweathermap.org/data/2.5/forecast?lon=" + location.coordinate.longitude+ "&lat=" + location.coordinate.latitude + "&APPID=" + api_id_owm;
+        } else if (location.owmId != null){
             query = "http://api.openweathermap.org/data/2.5/forecast?id=" + location.owmId+ "&APPID=" + api_id_owm;
         } else if (location.name != null){
             query = "http://api.openweathermap.org/data/2.5/forecast?q=" + location.name.replace(" ", "%20") + "&APPID=" + api_id_owm;
@@ -130,7 +136,9 @@ public class OWM {
     public static CurrentWeather getCurrentWeather(Location location){
         String query;
 
-        if (location.owmId != null){
+        if ((location.coordinate != null) && (location.coordinate.longitude != null & location.coordinate.latitude != null)){
+            query = "http://api.openweathermap.org/data/2.5/weather?lon=" + location.coordinate.longitude+ "&lat=" + location.coordinate.latitude + "&APPID=" + api_id_owm;
+        } else if (location.owmId != null){
             query = "http://api.openweathermap.org/data/2.5/weather?id=" + location.owmId+ "&APPID=" + api_id_owm;
         } else if (location.name != null){
             query = "http://api.openweathermap.org/data/2.5/weather?q=" + location.name.replace(" ", "%20") + "&APPID=" + api_id_owm;
@@ -151,11 +159,11 @@ public class OWM {
         CurrentWeather currentWeather = OWM.getCurrentWeather( Location.fromName("Berlin"));
 
         //How to get specific forecast datapoint (ie Thursday 1pm) from ForecastInformationWeek object
-        DailyForecast dailyForecast = OWM.getWeekForecast( Location.fromName("Paris")).forecasts.get(0);
+        DailyForecast dailyForecast = OWM.getWeekForecast( Location.fromName("Paris")).forecasts.get(2);
         //0 can be changed to 0-4
 
         //How to get specific forecast datapoint (ie today/tomorrow 9am) from ForecastInformationDay object
-        HourlyForecast hourlyForecast = OWM.getDayForecast(Location.fromName("Liverpool")).forecasts.get(0);
+        HourlyForecast hourlyForecast = OWM.getDayForecast(Location.fromName("Paris")).forecasts.get(2);
         //0 can be changed from 0-7 ?? i think
 
         //What data can we get from currentweather/day/hour forecast?
@@ -180,5 +188,8 @@ public class OWM {
         //systemParameters.sunset
         //systemParameters.country
         //System.out.println(QueryParser.getIcon(hourlyForecast.weather.get(0).icon)); //Date of forecast and time
+        System.out.println(hourlyForecast.clouds.cloudiness);
+
+        System.out.println(dailyForecast.clouds.cloudiness);
     }
 }

@@ -16,8 +16,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.shredzone.commons.suncalc.SunTimes;
 import utils.Conversions;
@@ -38,6 +37,8 @@ import static sample.Main.*;
 
 public class DetailsWeeklyController extends TimerTask{
 
+    @FXML
+    private Pane container;
 
     //set up IDs for all variables in the system
     @FXML
@@ -329,7 +330,7 @@ public class DetailsWeeklyController extends TimerTask{
         btnWeekly.setSelected(true);
         CurrentWeather cw = OWM.getCurrentWeather(detailsPageLocation);
         locate.setText(Main.detailsPageLocation.name);
-        List<DailyForecast> list = OWM.getWeekForecast(Main.detailsPageLocation).forecasts;
+        List<DailyForecast> listDaily = OWM.getWeekForecast(Main.detailsPageLocation).forecasts;
         //set up time fields
         Date date = new Date();   // given date
         Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
@@ -354,63 +355,63 @@ public class DetailsWeeklyController extends TimerTask{
         time8.setText(simpleDateFormat.format(calendar.getTime()));
 
         //sets up temps
-        double bd = Conversions.toCelsius(list.get(0).mainParameters.temperature);
+        String bd = Conversions.convertToPreferredTemperature(listDaily.get(0).mainParameters.temperature);
 
-        double bd2 = Conversions.toCelsius(list.get(1).mainParameters.temperature);
+        String bd2 = Conversions.convertToPreferredTemperature(listDaily.get(1).mainParameters.temperature);
 
-        double bd3 =Conversions.toCelsius(list.get(2).mainParameters.temperature);
+        String bd3 = Conversions.convertToPreferredTemperature(listDaily.get(2).mainParameters.temperature);
 
-        double bd4 =Conversions.toCelsius(list.get(3).mainParameters.temperature);
+        String bd4 = Conversions.convertToPreferredTemperature(listDaily.get(3).mainParameters.temperature);
 
-        double bd5 =Conversions.toCelsius(list.get(4).mainParameters.temperature);
+        String bd5 = Conversions.convertToPreferredTemperature(listDaily.get(4).mainParameters.temperature);
 
-        double bd6 =Conversions.toCelsius(list.get(5).mainParameters.temperature);
+        String bd6 = Conversions.convertToPreferredTemperature(listDaily.get(5).mainParameters.temperature);
 
-        double bd7 = Conversions.toCelsius(list.get(6).mainParameters.temperature);
+        String bd7 = Conversions.convertToPreferredTemperature(listDaily.get(6).mainParameters.temperature);
 
-        double bd8 =Conversions.toCelsius(list.get(7).mainParameters.temperature);
+        String bd8 = Conversions.convertToPreferredTemperature(listDaily.get(7).mainParameters.temperature);
 
-        temp1.setText(String.format("%.1f", bd) + "°");
+        temp1.setText(bd);
 
-        temp2.setText(String.format("%.1f", bd2) + "°");
+        temp2.setText(bd2);
 
-        temp3.setText(String.format("%.1f", bd3) + "°");
+        temp3.setText(bd3);
 
-        temp4.setText(String.format("%.1f", bd4) + "°");
+        temp4.setText(bd4);
 
-        temp5.setText(String.format("%.1f", bd5) + "°");
+        temp5.setText(bd5);
 
-        temp6.setText(String.format("%.1f", bd6) + "°");
+        temp6.setText(bd6);
 
-        temp7.setText(String.format("%.1f", bd7) + "°");
+        temp7.setText(bd7);
 
-        temp8.setText(String.format("%.1f", bd8) + "°");
+        temp8.setText(bd8);
 
 
-        cld1.setText(String.valueOf(list.get(0).clouds.cloudiness));
-        cld2.setText(String.valueOf(list.get(1).clouds.cloudiness));
-        cld3.setText(String.valueOf(list.get(2).clouds.cloudiness));
-        cld4.setText(String.valueOf(list.get(3).clouds.cloudiness));
-        cld5.setText(String.valueOf(list.get(4).clouds.cloudiness));
-        cld6.setText(String.valueOf(list.get(5).clouds.cloudiness));
-        cld7.setText(String.valueOf(list.get(6).clouds.cloudiness));
-        cld8.setText(String.valueOf(list.get(7).clouds.cloudiness));
+        cld1.setText(String.valueOf(listDaily.get(0).clouds.cloudiness));
+        cld2.setText(String.valueOf(listDaily.get(1).clouds.cloudiness));
+        cld3.setText(String.valueOf(listDaily.get(2).clouds.cloudiness));
+        cld4.setText(String.valueOf(listDaily.get(3).clouds.cloudiness));
+        cld5.setText(String.valueOf(listDaily.get(4).clouds.cloudiness));
+        cld6.setText(String.valueOf(listDaily.get(5).clouds.cloudiness));
+        cld7.setText(String.valueOf(listDaily.get(6).clouds.cloudiness));
+        cld8.setText(String.valueOf(listDaily.get(7).clouds.cloudiness));
 
-        String rainOutput = list.get(0).rain != null ? (list.get(0).rain.rainAmt + "%") : "N/A";
+        String rainOutput = listDaily.get(0).rain != null ? (listDaily.get(0).rain.rainAmt + "%") : "N/A";
         rain1.setText(rainOutput);
-        rainOutput = list.get(1).rain != null ? (list.get(1).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(1).rain != null ? (listDaily.get(1).rain.rainAmt + "%") : "N/A";
         rain2.setText(rainOutput);
-        rainOutput = list.get(2).rain != null ? (list.get(2).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(2).rain != null ? (listDaily.get(2).rain.rainAmt + "%") : "N/A";
         rain3.setText(rainOutput);
-        rainOutput = list.get(3).rain != null ? (list.get(3).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(3).rain != null ? (listDaily.get(3).rain.rainAmt + "%") : "N/A";
         rain4.setText(rainOutput);
-        rainOutput = list.get(4).rain != null ? (list.get(4).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(4).rain != null ? (listDaily.get(4).rain.rainAmt + "%") : "N/A";
         rain5.setText(rainOutput);
-        rainOutput = list.get(5).rain != null ? (list.get(5).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(5).rain != null ? (listDaily.get(5).rain.rainAmt + "%") : "N/A";
         rain6.setText(rainOutput);
-        rainOutput = list.get(6).rain != null ? (list.get(6).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(6).rain != null ? (listDaily.get(6).rain.rainAmt + "%") : "N/A";
         rain7.setText(rainOutput);
-        rainOutput = list.get(7).rain != null ? (list.get(7).rain.rainAmt + "%") : "N/A";
+        rainOutput = listDaily.get(7).rain != null ? (listDaily.get(7).rain.rainAmt + "%") : "N/A";
         rain8.setText(rainOutput);
 
 
@@ -432,6 +433,15 @@ public class DetailsWeeklyController extends TimerTask{
         sunup5.setText(simpleDateFormat1.format(sunTimes.get(4).getRise()));
         sunup6.setText(simpleDateFormat1.format(sunTimes.get(5).getRise()));
         sunup7.setText(simpleDateFormat1.format(sunTimes.get(6).getRise()));
+
+        sun1.setImage(listDaily.get(0).getIcon());
+        sun2.setImage(listDaily.get(1).getIcon());
+        sun3.setImage(listDaily.get(2).getIcon());
+        sun4.setImage(listDaily.get(3).getIcon());
+        sun5.setImage(listDaily.get(4).getIcon());
+        sun6.setImage(listDaily.get(5).getIcon());
+        sun7.setImage(listDaily.get(6).getIcon());
+        sun8.setImage(listDaily.get(7).getIcon());
         //sunup8.setText(simpleDateFormat1.format(sunTimes.get(7).getRise()));
 
 
@@ -449,20 +459,24 @@ public class DetailsWeeklyController extends TimerTask{
 
         //t2.scheduleAtFixedRate(this,0,1000);
 
+        String weatherDesc = cw.weather.get(0).description;
+
+        BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+        container.setBackground(new Background(backgroundImage));
+
     }
 
     private void updateCurentWeather(CurrentWeather cw){
         System.out.println("refresh current weather");
         System.out.println(cw.mainParameters.temperature);
         System.out.println("once");
-        BigDecimal bd = new BigDecimal(cw.mainParameters.temperature - 273.15);
-        bd = bd.round(new MathContext(3));
-        temperature.setText(String.valueOf(bd) + "°");
-        visibility.setText(cw.visibility);
+        String bd = Conversions.convertToPreferredTemperature(cw.mainParameters.temperature);
+        temperature.setText(bd);
+        visibility.setText(Conversions.convertToPreferredDistance(Double.parseDouble(cw.visibility)));
         sunrise.setText(cw.systemParameters.sunrise.toString().split(" ")[3].substring(0,5));
         sunset.setText(cw.systemParameters.sunset.toString().split(" ")[3].substring(0,5));
         cloudCover.setText(new Double(cw.clouds.cloudiness).intValue() +"%");
-        sunPosition.setText(scAPI.getSunPositionNow(detailsPageLocation).getAltitude() +  "°");
+        sunPosition.setText(Conversions.roundDouble(scAPI.getSunPositionNow(detailsPageLocation).getAltitude()) +  "°");
         String rainOutput = cw.rain != null ? (cw.rain.rainAmt + "%") : "N/A";
         chanceOfRain.setText(rainOutput);
         sunType.setImage(cw.getIcon());

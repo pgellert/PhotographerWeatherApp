@@ -13,8 +13,8 @@ import java.io.IOException;
 public class Main extends Application {
     public static Stage stage;
 
-    private static final int PAGE_WIDTH = 479;
-    private static final int PAGE_HEIGHT = 673;
+    public static final int PAGE_WIDTH = 479;
+    public static final int PAGE_HEIGHT = 673;
 
     public static Location detailsPageLocation = Location.fromName("Cambridge,UK");
     private static Class<? extends Main> loaderClass;
@@ -54,27 +54,24 @@ public class Main extends Application {
         stage.show();
     }
 
+    public static void navigateToTips() throws IOException {
+        System.out.println("goto tips page");
+
+        Parent tipsPage = FXMLLoader.load(loaderClass.getResource("tipspage.fxml"));
+        stage.setScene(new Scene(tipsPage, PAGE_WIDTH, PAGE_HEIGHT));
+        stage.show();
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         loaderClass = getClass();
 
         this.stage = primaryStage;
         stage.setTitle("Weather App for Photographers");
-        loadMain();
-        //loadMainTester(); //this is for the details page ui designers
-    }
-
-    private void loadMainTester() throws IOException {
-        // TODO: should be removed at the end
-        Parent mainTesterPage = FXMLLoader.load(loaderClass.getResource("main.fxml"));
-        stage.setScene(new Scene(mainTesterPage, PAGE_WIDTH, PAGE_HEIGHT));
-        stage.show();
-    }
-
-    private void loadMain() throws IOException {
         Parent mainPage = FXMLLoader.load(loaderClass.getResource("mainpage.fxml"));
         stage.setScene(new Scene(mainPage, PAGE_WIDTH, PAGE_HEIGHT));
         stage.show();
+
     }
 
     public static void main(String[] args) {
