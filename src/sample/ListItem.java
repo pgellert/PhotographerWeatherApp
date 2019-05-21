@@ -33,6 +33,9 @@ public class ListItem {
     private Pane container;
 
     @FXML
+    private Button removeButton;
+
+    @FXML
     private Label locationValue;
     @FXML
     private Label temperatureValue;
@@ -70,16 +73,8 @@ public class ListItem {
         CurrentWeather weather = OWM.getCurrentWeather(location);
         SunPosition sunPosition = scAPI.getSunPositionNow(location);
 
-        /*
-            TODO: change from fixed value
-             - weather icon
-             - chance of rain
-             - sun position
-         */
-
         weatherIcon.setImage(weather.getIcon());
         locationValue.setText(weather.cityName);
-        // TODO: change to K based on settings
         temperatureValue.setText(Conversions.convertToPreferredTemperature(weather.mainParameters.temperature));
         visibilityValue.setText(Conversions.convertToPreferredDistance(Double.valueOf(weather.visibility)));
         if(weather.rain == null){
@@ -90,6 +85,7 @@ public class ListItem {
         sunPositionValue.setText(Conversions.roundDouble(sunPosition.getAltitude()) + "°");
         cloudCoverValue.setText(Math.round(weather.clouds.cloudiness) + "%");
         currentLocationIcon.setVisible(isCurrentLocation);
+        removeButton.setVisible(!isCurrentLocation);
     }
 
     public Pane getContainer()
@@ -100,6 +96,7 @@ public class ListItem {
     @FXML
     private void removeButtonClicked() throws IOException {
         UpdateAllLocations.getUwa().removeLocation(location);
+        Mainpage.observableList.remove(location);
     }
 
     @FXML
