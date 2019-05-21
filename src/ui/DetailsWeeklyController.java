@@ -299,7 +299,10 @@ public class DetailsWeeklyController{
 
     }
 
-    //When the button is toggled we switch to hourly
+    /*This is called when the hourly button is pressed.
+    It changes the scene to a weekly controller which has
+    the same upper part but displays weekly forecast in the
+    lower part*/
     public void hourlySwitch() throws IOException {
 
         root = FXMLLoader.load(getClass().getResource("detailpage.fxml"));
@@ -310,7 +313,9 @@ public class DetailsWeeklyController{
     }
 
 
-    //Mihnea's method which initializes all fields in the top part of the screen
+    /* Initializes the whole state on entering the scene from any other page.
+    Sets all fields on the screen and icons and background image.
+     * */
     public void initialize(){
         btnWeekly.setSelected(true);
         CurrentWeather cw = OWM.getCurrentWeather(detailsPageLocation);
@@ -334,18 +339,12 @@ public class DetailsWeeklyController{
         time5.setText(simpleDateFormat.format(calendar.getTime()));
         calendar.add(Calendar.DAY_OF_MONTH,1);
 
-        //sets up temps
+        //sets up temperature fields
         String bd = Conversions.convertToPreferredTemperature(listDaily.get(0).mainParameters.temperature);
-
         String bd2 = Conversions.convertToPreferredTemperature(listDaily.get(1).mainParameters.temperature);
-
         String bd3 = Conversions.convertToPreferredTemperature(listDaily.get(2).mainParameters.temperature);
-
         String bd4 = Conversions.convertToPreferredTemperature(listDaily.get(3).mainParameters.temperature);
-
         String bd5 = Conversions.convertToPreferredTemperature(listDaily.get(4).mainParameters.temperature);
-
-
 
         temp1.setText(bd);
 
@@ -357,16 +356,14 @@ public class DetailsWeeklyController{
 
         temp5.setText(bd5);
 
-
-
-
+        //This sets the cloudiness in percent of the day
         cld1.setText(String.valueOf(listDaily.get(0).clouds.cloudiness));
         cld2.setText(String.valueOf(listDaily.get(1).clouds.cloudiness));
         cld3.setText(String.valueOf(listDaily.get(2).clouds.cloudiness));
         cld4.setText(String.valueOf(listDaily.get(3).clouds.cloudiness));
         cld5.setText(String.valueOf(listDaily.get(4).clouds.cloudiness));
 
-
+        /*Initialzie the rain amount and display it in the scene.*/
         String rainOutput = listDaily.get(0).rain != null ? (listDaily.get(0).rain.rainAmt + "%") : "N/A";
         rain1.setText(rainOutput);
         rainOutput = listDaily.get(1).rain != null ? (listDaily.get(1).rain.rainAmt + "%") : "N/A";
@@ -379,41 +376,51 @@ public class DetailsWeeklyController{
         rain5.setText(rainOutput);
 
 
-
+        //this is a format which displays the hour and minutes for use of the time fields above the icons
         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("HH:mm");
+
+        //this gets a list of sunrise and sunset times from the API
         List<SunTimes> sunTimes = scAPI.getSunTimesWeek(detailsPageLocation);
+        //this sets the sundown time
         sundown1.setText(simpleDateFormat1.format(sunTimes.get(0).getSet()));
         sundown2.setText(simpleDateFormat1.format(sunTimes.get(1).getSet()));
         sundown3.setText(simpleDateFormat1.format(sunTimes.get(2).getSet()));
         sundown4.setText(simpleDateFormat1.format(sunTimes.get(3).getSet()));
         sundown5.setText(simpleDateFormat1.format(sunTimes.get(4).getSet()));
-
-
+        //this fetches and displays the sunrise time in the fields in the FXML
         sunup1.setText(simpleDateFormat1.format(sunTimes.get(0).getRise()));
         sunup2.setText(simpleDateFormat1.format(sunTimes.get(1).getRise()));
         sunup3.setText(simpleDateFormat1.format(sunTimes.get(2).getRise()));
         sunup4.setText(simpleDateFormat1.format(sunTimes.get(3).getRise()));
         sunup5.setText(simpleDateFormat1.format(sunTimes.get(4).getRise()));
 
-
+        /*This sets a different icon depending on the weather condition
+         * for each hour*/
         sun1.setImage(listDaily.get(0).getIcon());
         sun2.setImage(listDaily.get(1).getIcon());
         sun3.setImage(listDaily.get(2).getIcon());
         sun4.setImage(listDaily.get(3).getIcon());
         sun5.setImage(listDaily.get(4).getIcon());
 
+
+        /*This is a method we call to initialize the top part of the screen.*/
         updateCurentWeather(cw);
 
 
 
-        // Background image
+        // Background fetched here
         String weatherDesc = cw.weather.get(0).description;
 
+
+        /* The background image is set dynamically based on the weather*/
         BackgroundImage backgroundImage = new BackgroundImage(utils.Background.getBackgroundImage(weatherDesc), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         container.setBackground(new Background(backgroundImage));
 
     }
 
+
+    /* This initializes all state in the upper part of the screen.
+    It uses the same logic as above. */
     private void updateCurentWeather(CurrentWeather cw){
         System.out.println("refresh current weather");
         System.out.println(cw.mainParameters.temperature);
