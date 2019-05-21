@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -14,9 +15,15 @@
       </Label>
       <Label fx:id="tempLabel" layoutX="65.0" layoutY="133.0" text="Temperature format:" />
       <Label fx:id="distLabel" layoutX="65.0" layoutY="202.0" text="Distance format:" />
-      <ToggleButton fx:id="distKilom" layoutX="270.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnKm" prefHeight="39.0" prefWidth="67.0" text="km" />
-      <ToggleButton fx:id="distMiles" layoutX="337.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnMiles" prefHeight="39.0" prefWidth="67.0" text="miles" />
-      <ToggleButton fx:id="tempCelsius" layoutX="271.0" layoutY="127.0" mnemonicParsing="false" onAction="#btnCelsius" prefHeight="39.0" prefWidth="67.0" text="°C" />
-      <ToggleButton fx:id="tempFahr" layoutX="337.0" layoutY="127.0" mnemonicParsing="false" onAction="#btnFahrenheit" prefHeight="39.0" prefWidth="67.0" text="°F" />
+      <ToggleButton fx:id="distKilom" layoutX="270.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnKm" prefHeight="39.0" prefWidth="67.0" text="km">
+         <toggleGroup>
+            <ToggleGroup fx:id="distanceUnitGroup" />
+         </toggleGroup></ToggleButton>
+      <ToggleButton fx:id="distMiles" layoutX="337.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnMiles" prefHeight="39.0" prefWidth="67.0" text="miles" toggleGroup="$distanceUnitGroup" />
+      <ToggleButton fx:id="tempCelsius" layoutX="271.0" layoutY="127.0" mnemonicParsing="false" onAction="#btnCelsius" prefHeight="39.0" prefWidth="67.0" text="°C">
+         <toggleGroup>
+            <ToggleGroup fx:id="temperatureUnitGroup" />
+         </toggleGroup></ToggleButton>
+      <ToggleButton fx:id="tempFahr" layoutX="337.0" layoutY="127.0" mnemonicParsing="false" onAction="#btnFahrenheit" prefHeight="39.0" prefWidth="67.0" text="°F" toggleGroup="$temperatureUnitGroup" />
    </children>
 </Pane>
