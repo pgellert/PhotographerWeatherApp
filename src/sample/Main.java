@@ -54,6 +54,14 @@ public class Main extends Application {
         stage.show();
     }
 
+    public static void navigateToTips() throws IOException {
+        System.out.println("goto tips page");
+
+        Parent tipsPage = FXMLLoader.load(loaderClass.getResource("tipspage.fxml"));
+        stage.setScene(new Scene(tipsPage, PAGE_WIDTH, PAGE_HEIGHT));
+        stage.show();
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         loaderClass = getClass();
@@ -75,6 +83,7 @@ public class Main extends Application {
         Parent mainPage = FXMLLoader.load(loaderClass.getResource("mainpage.fxml"));
         stage.setScene(new Scene(mainPage, PAGE_WIDTH, PAGE_HEIGHT));
         stage.show();
+
     }
 
     public static void main(String[] args) {

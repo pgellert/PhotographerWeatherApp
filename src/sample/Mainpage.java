@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -21,6 +22,7 @@ import javafx.util.Pair;
 import processes.UpdateAllLocations;
 import utils.OWM;
 
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,7 +38,7 @@ public class Mainpage implements Initializable {
     private Pane container;
 
     @FXML
-    private MenuButton menu;
+    private MenuButton btnHamburger;
 
     private static boolean isAdded;
 
@@ -48,6 +50,11 @@ public class Mainpage implements Initializable {
     @FXML
     private void navigateToSettings(ActionEvent event) throws IOException {
         Main.navigateToSettings();
+    }
+
+    @FXML
+    private void navigateToTips(ActionEvent event) throws IOException {
+        Main.navigateToTips();
     }
 
     @Override
@@ -80,6 +87,14 @@ public class Mainpage implements Initializable {
             UpdateAllLocations.getUwa().addLocation(Location.fromName("Bristol, UK"));
             isAdded = true;
         }
+
+        Image image = new Image("noahpics/hamburger.png", btnHamburger.getWidth(), btnHamburger.getHeight(), false, true, true);
+        BackgroundImage bImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(btnHamburger.getWidth(), btnHamburger.getHeight(), true, true, true, false));
+        btnHamburger.setMinSize(55, 37);
+        btnHamburger.setMaxSize(55, 37);
+
+        Background backGround = new Background(bImage);
+        btnHamburger.setBackground(backGround);
 
         boolean isFirst = true;
         // Populate list
