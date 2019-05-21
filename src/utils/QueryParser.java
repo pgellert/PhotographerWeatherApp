@@ -10,6 +10,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+
+/*
+ * This class deals with everything related to quering the OpenWeatherMap
+ * database that we use to get JSON objects which contain information about
+ * weather. It does all the networking with proper exceptions and then
+ * returns further queriable data structures.
+  * */
 public class QueryParser {
 
     public static Image getIcon(String icon){
