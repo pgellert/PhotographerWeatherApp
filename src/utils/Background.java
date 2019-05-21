@@ -8,8 +8,10 @@ import java.io.FileNotFoundException;
 
 public class Background {
 
+    //returns the mage corresponding to current weather as provided in weatherDesc as a javafx Image
     public static Image getBackgroundImage(String weatherDesc){
         try {
+            //had to switch from one weather Description format to another due to API changes, this converts it
             if (weatherDesc.contains("thunder")) {
                 weatherDesc = "thunderstorm";
             } else if (weatherDesc.contains("snow") || weatherDesc.contains("sleet")) {
@@ -23,6 +25,8 @@ public class Background {
             } else {
                 weatherDesc = "mist";
             }
+
+            //selects the correct image to return for each weather case returns it
             switch (weatherDesc){
                 case "few clouds":
                     return new Image(new FileInputStream("src/res/background/cloud.jpg"), Main.PAGE_WIDTH, Main.PAGE_HEIGHT, true, true);

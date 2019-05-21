@@ -40,7 +40,7 @@ public class scAPI {
     }
 
     /*
-    Returns a list of 24 SunPositions for the next 24 hours, starting now
+        Returns a list of 24 SunPositions for the next 24 hours, starting now
      */
 
     public static List<SunPosition> getSunPositionsDay(double lat, double lon) {
